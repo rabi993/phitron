@@ -8,9 +8,11 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    //sort(a,a+n); //assending order
-    //sort(a,a+3);
-
+    sort(a,a+n); //assending order
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+ cout<<endl;
     sort(a,a+n,greater<int>()); //decending order
     for(int i=0;i<n;i++){
         cout<<a[i]<<" ";
@@ -18,4 +20,3 @@ int main(){
 
 return 0;
 }
-
