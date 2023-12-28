@@ -9,43 +9,49 @@ int main()
 
         myList.push_back(v);
     }
-
-
-
-    for (string val : myList){
+   /* for (string val : myList){
 
         cout << val << " ";
     }
-    cout << endl;
+    cout << endl;*/
+    int c=0;
 int q;
     cin>>q;
-    while(q!=0){
+    for(int k=0; k<q;k++){
     int sz = myList.size();
     string x;
     cin>>x;
-    int c=0;
+    //int c=0;
     if (x=="visit"){
         string ad;
         cin>> ad;
-
+        int b=0;
         for (auto it = myList.begin(); it != myList.end(); ++it) {
                 if(*it==ad){
                     cout << *it <<endl;
+                    c=b;
                     break;
                     }
-                    c++;
+                    b++;
         }
-        cout<<"Not Available"<<endl;
-        c=0;
+        //cout<<c<<endl;
+        if(b>=sz){
+                cout<<"Not Available"<<endl;
+                //c=0;
+        }
+
     }
+     //cout<<c<<endl;
     if(x=="next"){
         int a=0;
         int p=c+1;
-        if(p<=sz){
+         //cout<<c<<endl;
+        if(p<sz ){
             for (auto it = myList.begin(); it != myList.end(); ++it) {
                 if(a==p){
                     cout << *it <<endl;
                     c+=1;
+
                     break;
                     }
                     a++;
@@ -53,18 +59,19 @@ int q;
         }
         else{
         cout<<"Not Available"<<endl;
-        c=sz;
+        c=sz-1;
         }
 
     }
+     //cout<<c<<endl;
     if(x=="prev"){
         int a=0;
         int p=c-1;
-        if(p<=0){
+        if(p>=0){
             for (auto it = myList.begin(); it != myList.end(); ++it) {
                 if(a==p){
                     cout << *it <<endl;
-                    c+=1;
+                    c-=1;
                     break;
                     }
                     a++;
@@ -77,14 +84,6 @@ int q;
 
     }
     }
-
-
-
-
-
-
-q--;
-
 
     return 0;
 }
