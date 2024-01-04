@@ -19,6 +19,7 @@ public:
     Node *head = NULL;
     Node *tail = NULL;
     int sz = 0;
+
     void push(int val)
     {
         sz++;
@@ -33,6 +34,7 @@ public:
         newNode->prev = tail;
         tail = tail->next;
     }
+
     void pop()
     {
         sz--;
@@ -47,14 +49,17 @@ public:
         head->prev = NULL;
         delete deleteNode;
     }
+
     int front()
     {
         return head->val;
     }
+
     int size()
     {
         return sz;
     }
+
     bool empty()
     {
         if (sz == 0)
@@ -63,6 +68,7 @@ public:
             return false;
     }
 };
+
 int main()
 {
     myQueue q;
@@ -74,10 +80,12 @@ int main()
         cin >> x;
         q.push(x);
     }
+
     while (!q.empty())
     {
         cout << q.front() << endl;
         q.pop();
     }
+
     return 0;
 }

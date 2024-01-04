@@ -25,6 +25,7 @@ public:
         return l.empty();
     }
 };
+
 int main()
 {
     myQueue q;
@@ -36,14 +37,17 @@ int main()
         cin >> x;
         q.push(x);
     }
+
     while (!q.empty())
     {
         cout << q.front() << endl;
         q.pop();
     }
+
     if (!q.empty())
     {
         cout << q.front();
     }
+
     return 0;
 }
