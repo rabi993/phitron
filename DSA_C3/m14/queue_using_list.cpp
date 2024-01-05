@@ -44,10 +44,10 @@ int main()
         q.pop();
     }
 
-    if (!q.empty())
-    {
-        cout << q.front();
-    }
+    //if (!q.empty())
+    //{
+    //    cout << q.front();
+    //}
 
     return 0;
 }
