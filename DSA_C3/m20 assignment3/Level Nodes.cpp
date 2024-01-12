@@ -49,43 +49,53 @@ Node *input_tree()
     return root;
 }
 
-int heightOfBinaryTree(Node *root)
+void nodeLevelPrint(Node *root, int leveledValue)
 {
+    if(!root)
+    {
+        cout<< "Invalid";
+        return;
+    }
 
-    if(root == NULL)
-        return 0;
-    int l = heightOfBinaryTree(root->left);
-    int r = heightOfBinaryTree(root->right);
-    return max(l, r) + 1;
+    queue<pair<Node *, int>> q;
+    q.push({root, 0});
+    bool levelFound = false;
 
+    while(!q.empty())
+    {
+        pair<Node*, int> pr = q.front();
+        Node *node = pr.first;
+        int level = pr.second;
+        q.pop();
+        if(level == leveledValue){
+            cout<<node->val<<" ";
+            levelFound = true;
+        }
+
+        if(node->left)
+        {
+            q.push({node->left, level + 1});
+        }
+        if(node->right)
+        {
+            q.push({node->right, level + 1});
+        }
+    }
+
+     if(!levelFound)
+    {
+        cout<< "Invalid";
+    }
 }
 
-int countAllNodes(Node *root) {
-    if(root == NULL)
-        return 0;
-
-    int leftCount = countAllNodes(root->left);
-    int rightCount = countAllNodes(root->right);
-
-    return 1 + leftCount + rightCount;
-
-}
 
 int main()
 {
     Node *root = input_tree();
-    int x=  countAllNodes(root);
-    int y =heightOfBinaryTree(root);
-    int z=pow(2, y) - 1;
-    //cout<< x << endl;
-    //cout<< y << endl;
-    //cout<< z << endl;
-    if(z==x){
+    int x;
+    cin>>x;
+    nodeLevelPrint(root, x);
 
-        cout<< "YES" << endl;
-    }
-    else {
-        cout<< "NO" << endl;
-    }
     return 0;
 }
+

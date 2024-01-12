@@ -49,43 +49,51 @@ Node *input_tree()
     return root;
 }
 
-int heightOfBinaryTree(Node *root)
-{
+ vector<int> v;
+ void collect_left(Node *root){
+      if (root == NULL) return;
 
-    if(root == NULL)
-        return 0;
-    int l = heightOfBinaryTree(root->left);
-    int r = heightOfBinaryTree(root->right);
-    return max(l, r) + 1;
+      if (root->left){
+        collect_left(root->left);
+        v.push_back(root->val);
+      }
+      else{
+        collect_left(root->right);
+        v.push_back(root->val);
+      }
+ }
 
-}
 
-int countAllNodes(Node *root) {
-    if(root == NULL)
-        return 0;
 
-    int leftCount = countAllNodes(root->left);
-    int rightCount = countAllNodes(root->right);
+  void collect_right(Node *root){
+      if (root == NULL) return;
 
-    return 1 + leftCount + rightCount;
+      if (root->right){
+            v.push_back(root->val);
+            collect_right(root->right);
 
-}
+      }
+      else{
+           v.push_back(root->val);
+           collect_right(root->left);
+
+      }
+ }
+
 
 int main()
 {
     Node *root = input_tree();
-    int x=  countAllNodes(root);
-    int y =heightOfBinaryTree(root);
-    int z=pow(2, y) - 1;
-    //cout<< x << endl;
-    //cout<< y << endl;
-    //cout<< z << endl;
-    if(z==x){
 
-        cout<< "YES" << endl;
+     collect_left(root->left);
+    v.push_back(root->val);
+     collect_right(root->right);
+
+    for(int c: v){
+        cout<< c<< " ";
     }
-    else {
-        cout<< "NO" << endl;
-    }
+
     return 0;
 }
+
+
