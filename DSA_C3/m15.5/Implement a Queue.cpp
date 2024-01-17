@@ -1,5 +1,6 @@
 
 #include <bits/stdc++.h>
+using namespace std;
 class Node
 {
 public:
@@ -77,3 +78,31 @@ public:
         return first->data;
     }
 };
+int main()
+{
+    Queue myQueue;
+
+    // Enqueue some elements
+    myQueue.enqueue(10);
+    myQueue.enqueue(20);
+    myQueue.enqueue(30);
+
+    // Display front element
+    std::cout << "Front element: " << myQueue.front() << std::endl;
+
+    // Dequeue an element
+    int dequeuedElement = myQueue.dequeue();
+    if (dequeuedElement != -1)
+    {
+        std::cout << "Dequeued element: " << dequeuedElement << std::endl;
+    }
+    else
+    {
+        std::cout << "Queue is empty. Cannot dequeue." << std::endl;
+    }
+
+    // Display front element after dequeue
+    std::cout << "Front element after dequeue: " << myQueue.front() << std::endl;
+
+    return 0;
+}

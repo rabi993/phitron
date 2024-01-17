@@ -26,6 +26,34 @@
 
 
 *****************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+
+    Node()
+    {
+        this->data = 0;
+        next = nullptr;
+    }
+
+    Node(int data)
+    {
+        this->data = data;
+        this->next = nullptr;
+    }
+
+    Node(int data, Node *next)
+    {
+        this->data = data;
+        this->next = next;
+    }
+};
+
 
 class Stack
 {
@@ -78,3 +106,26 @@ public:
         return -1; // If the stack is empty
     }
 };
+
+
+
+int main()
+{
+    Stack myStack;
+
+    // Testing the Stack operations
+    std::cout << "Is stack empty? " << (myStack.isEmpty() ? "Yes" : "No") << std::endl;
+
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+
+    std::cout << "Size of stack: " << myStack.getSize() << std::endl;
+    std::cout << "Top element of stack: " << myStack.getTop() << std::endl;
+
+    myStack.pop();
+    std::cout << "After popping, size of stack: " << myStack.getSize() << std::endl;
+    std::cout << "Top element of stack: " << myStack.getTop() << std::endl;
+
+    return 0;
+}
