@@ -2,24 +2,25 @@
 using namespace std;
 vector<int> v[1005];
 bool vis[1005];
-void bfs(int src, int des)
+void bfs(int src)
 {
     queue<pair<int, int>> q;
     q.push({src, 0});
     vis[src] = true;
-    bool paisi = false;
+   // bool paisi = false;
+    int cnt=0;
     while (!q.empty())
     {
         pair<int, int> p = q.front();
         q.pop();
+
         int par = p.first;
         int level = p.second;
         // cout << par << endl;
-        if (par == des)
-        {
-            cout << level << endl;
-            paisi = true;
+        if(p.second==1){
+            cnt++;
         }
+
         for (int child : v[par])
         {
             if (vis[child] == false)
@@ -28,13 +29,13 @@ void bfs(int src, int des)
                 vis[child] = true;
             }
         }
-    }
 
-    cout << -1 << endl;
-    if (paisi == false)
-    {
-        cout << -1 << endl;
     }
+    //if (paisi == false)
+   // {
+   //     cout << -1 << endl;
+   // }
+   cout <<cnt << endl;
 }
 int main()
 {
@@ -47,9 +48,9 @@ int main()
         v[a].push_back(b);
         v[b].push_back(a);
     }
-    int src, des;
-    cin >> src>> des;
+    int src;
+    cin >> src;
     memset(vis, false, sizeof(vis));
-    bfs(src, des);
+    bfs(src);
     return 0;
 }

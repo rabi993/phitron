@@ -2,7 +2,7 @@
 using namespace std;
 vector<int> v[1005];
 bool vis[1005];
-void bfs(int src, int des)
+void bfs(int src, int des,int l)
 {
     queue<pair<int, int>> q;
     q.push({src, 0});
@@ -15,9 +15,12 @@ void bfs(int src, int des)
         int par = p.first;
         int level = p.second;
         // cout << par << endl;
+        if(p.second==l){
+            cout << p.first << " ";
+        }
         if (par == des)
         {
-            cout << level << endl;
+            cout <<"des->"<< level << endl;
             paisi = true;
         }
         for (int child : v[par])
@@ -30,7 +33,7 @@ void bfs(int src, int des)
         }
     }
 
-    cout << -1 << endl;
+    //cout << -1 << endl;
     if (paisi == false)
     {
         cout << -1 << endl;
@@ -47,9 +50,9 @@ int main()
         v[a].push_back(b);
         v[b].push_back(a);
     }
-    int src, des;
-    cin >> src>> des;
+    int src, des,l;
+    cin >> src>> des>>l;
     memset(vis, false, sizeof(vis));
-    bfs(src, des);
+    bfs(src, des, l);
     return 0;
 }

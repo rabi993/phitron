@@ -13,9 +13,9 @@ int main()
         mat[b].push_back(a);
     }
     vector<int> v;
-    for (int i = 0; i < mat[3].size(); i++)
+    for (int i = 0; i < mat[0].size(); i++)
     {
-        cout << mat[3][i] << " ";
+        cout << mat[0][i] << " ";
     }
     return 0;
 }
