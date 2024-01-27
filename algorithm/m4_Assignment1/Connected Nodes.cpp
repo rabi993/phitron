@@ -1,77 +1,63 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-vector<int> v[1005];
-bool vis[1005];
-bool attend = false;
-
-void bfs(int src)
-{
-    queue<pair<int, int>> q;
-    q.push({src, 0});
-    vis[src] = true;
-
-   vector<int>v2;
-    while (!q.empty())
-    {
-        pair<int, int> p = q.front();
-        q.pop();
-
-        int par = p.first;
-        int level = p.second;
-        // cout << par << endl;
-        if(p.second==1){
-                v2.push_back(par);
-            //cout << par << endl;
-            attend = true;
-        }
-
-        for(int child : v[par])
-        {
-            if(vis[child] == false)
-            {
-                q.push({child,level + 1});
-                vis[child] = true;
-            }
-        }
-    }
-
-   sort(v2.begin(), v2.end(),greater<int>());
-    for(int i=0; i<v2.size(); i++)
-    {
-   if(i==v2.size()-1){
-       cout<< v2[i] <<endl;
-    }
-    else{
-        cout<< v2[i] << " ";
-        }
-   }
-
-     if(attend == false)
-    {
-        cout << -1 <<endl;
-    }
-}
 int main()
 {
-    int n,e;
-    cin>>n>>e;
-    while(e--)
+    int n, e;
+    cin >> n >> e;
+    vector<int> mat[n];
+    vector<int> x;
+    while (e--)
     {
-        int a,b;
-        cin>>a>>b;
-        v[a].push_back(b);
-        v[b].push_back(a);
+        int a, b;
+        cin >> a >> b;
+        mat[a].push_back(b);
+        mat[b].push_back(a);
+        x.push_back(a);
+        x.push_back(b);
+
     }
 
     int q;
     cin>>q;
     while(q--){
+    vector<int> v;
     int src;
     cin>> src;
-    memset(vis, false, sizeof(vis));
-    bfs(src);
+    if(src<n){
+            bool f=false;
+            for(int c:x){
+                if (c==src){
+                    int k=mat[src].size();
+                    for (int i = 0; i < k; i++)
+                    {
+                        //cout << mat[src][i] << " ";
+                        v.push_back(mat[src][i]);
+                        f=true;
+
+                    }
+                     break;
+                }
+            }
+
+            if(f==false)cout<<-1<<endl;
     }
+
+    else cout<< -1 <<endl;
+
+    sort(v.begin(), v.end(),greater<int>());
+    int l=v.size();
+
+    for(int i=0; i<l; i++)
+    {
+            if(i==l-1){
+                    cout<<v[i]<<endl;
+                }
+            else{
+                    cout<<v[i]<<" ";
+                }
+    }
+    }
+
 
     return 0;
 }
