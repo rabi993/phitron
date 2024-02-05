@@ -26,7 +26,7 @@ void dijkstra(int src)
         {
             int childNode = child.first;
             int childCost = child.second;
-            if (cost + childCost < dis[childNode])
+            if (cost + childCost < dis[childNode
             {
                 // path relax
                 dis[childNode] = cost + childCost;
