@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <limits>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 const int INF = numeric_limits<int>::max();

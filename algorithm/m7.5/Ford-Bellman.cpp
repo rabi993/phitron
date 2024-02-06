@@ -12,7 +12,7 @@ public:
     }
 };
 const int N = 1e5 + 5;
-long long int dis[N];
+int dis[N];
 int main()
 {
     int n, e;
@@ -24,12 +24,12 @@ int main()
         cin >> u >> v >> c;
         EdgeList.push_back(Edge(u, v, c));
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         dis[i] = INT_MAX;
     }
-    dis[0] = 0;
-    for (int i = 1; i <= n - 1; i++)
+    dis[1] = 0;
+    for (int i = 2; i <= n ; i++)
     {
         for (Edge ed : EdgeList)
         {
@@ -43,27 +43,13 @@ int main()
             }
         }
     }
-    bool cycle = false;
-    for (Edge ed : EdgeList)
-    {
-        int u, v, c;
-        u = ed.u;
-        v = ed.v;
-        c = ed.c;
-        if (dis[u] < INT_MAX && dis[u] + c < dis[v])
-        {
-            cycle = true;
-            break;
+    for (int i = 1; i <= n; i++)
+
+        if(dis[i]==INT_MAX){
+            cout << "30000" << " ";
         }
-    }
-    if (cycle)
-    {
-        cout << "Cycle found. No answer" << endl;
-    }
-    else
-    {
-        for (int i = 0; i < n; i++)
-            cout << i << " -> " << dis[i] << endl;
-    }
+        else{
+            cout << dis[i] << " ";
+        }
     return 0;
 }
