@@ -30,7 +30,7 @@ void bfs(int src, int des)
         }
     }
 
-    cout << -1 << endl;
+    //cout << -1 << endl;
     if (paisi == false)
     {
         cout << -1 << endl;
