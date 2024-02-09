@@ -12,6 +12,7 @@ bool valid(int i,int j) {
 
 void dfs(int si, int sj) {
     vis[si][sj] = true;
+
     for(int i = 0; i < 4; i++) {
         int ci = si + d[i].first;
         int cj = sj + d[i].second;
@@ -35,9 +36,14 @@ int main() {
     //char A, B;
     int p,q,c,d;
     cin>> p>> q>>c>>d;
+    if(p==c && q==d){
+        cout<< "NO"<<endl;
+        return 0;
+    }
     memset(vis, false, sizeof(vis));
     a[p][q] = 'A';
     a[c][d] = 'B';
+
     for(int i=0; i<n; i++) {
         for(int j=0; j<m; j++) {
             if(a[i][j] == 'A') {
