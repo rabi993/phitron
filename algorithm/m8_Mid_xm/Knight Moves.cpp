@@ -1,66 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int a[105][105];
-bool vis[105][105];
-vector<pair<int,int>> d ={{-1, 2},{-2, 1},{-2, -1},{-1,-2},{1, -2},{2, -1},{2,1},{1,2}};
-int n,m;
-int cnt=1;
-
-
-bool valid(int i,int j) {
-    return (i>=0 && i<n && j>=0 && j<m && !vis[i][j]);
+vector<pair<int,int>>D ={{-1,-2},{-2,-1},{-2,1},{-1,2},{1,-2},{2,-1},{2,1},{1,2}};
+bool isValid(int x,int y,int N,int M){
+    return (x>=0 && x<N && y>=0 && y<M);
 }
 
-int dfs(int si,int sj,int cx,int dx) {
-    vis[si][sj] = true;
+int attack(int N,int M,int p,int q,int c,int d){
 
-    for(int i=0; i<8; i++) {
-        int ci = si +d[i].first;
-        int cj = sj +d[i].second;
-        if(valid(ci,cj) ) {
-            if(ci==cx && cj==dx ) {
-                cout<< "YES"<<endl;
-                //cout<< dis[ci][cj]<<endl;
-                //cout<< cnt<<endl;
+    vector<vector<bool>>visited(N, vector<bool>(M, false));
+    queue<pair<int,int>>qq;
+    qq.push({p,q});
+    visited[p][q]=true;
+    int cnt=0;
 
-                //exit(0);
+    while(!qq.empty()) {
+        int s =qq.size();
+        for (int i=0;i<s;i++) {
+            int x =qq.front().first;
+            int y =qq.front().second;
+            qq.pop();
+
+            if(x==c && y==d) {
                 return cnt;
             }
-            cnt += a[ci][cj];
-            dfs(ci,cj,cx,dx);
 
+            for(auto De : D) {
+                int X =x + De.first;
+                int Y =y + De.second;
+
+                if(isValid(X,Y,N,M) && !visited[X][Y]){
+                    qq.push({X,Y});
+                    visited[X][Y]= true;
+                }
+            }
         }
+        cnt++;
     }
     return -1;
 }
 
-int main(){
+int main() {
     int t;
     cin>>t;
-    while(t--)
-    {
+    while(t--) {
+        int N,M;
+        cin>>N>>M;
+        int p,q,c,d;
+        cin>>p>>q>>c>>d;
 
-    cin>>n>>m;
-    for(int i=0; i<n; i++) {
-        for(int j=0; j<m; j++) {
-            a[i][j]=1;
-        }
+        int result = attack(N,M,p,q,c,d);
+        cout<<result<< endl;
     }
-
-    int p,q,c,d;
-    cin>>p>>q>>c>>d;
-    //memset(a,0, sizeof(a));
-
-    memset(vis,false, sizeof(vis));
-    //memset(dis,1, sizeof(dis));
-
-    int r=dfs(p, q,c,d);
-   // cout<<"-1"<<endl;
-   cout<<r<<endl;
-
-}
 
     return 0;
 }
-
