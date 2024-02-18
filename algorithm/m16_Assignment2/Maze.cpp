@@ -1,60 +1,92 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
+bool vis[1005][1005];
+char a[1005][1005];
+pair<int, int> parent[1005][1005];
+vector<pair<int, int>> d = {{1,0},{-1,0},{0,-1},{0, 1}};
+int n, m;
 
-vector<pair<int,int>> d ={{0,1},{0,-1},{-1,0},{1,0}};
+bool valid(int i, int j){
+    return (i >= 0 && i<n && j >= 0 && j<m && a[i][j] != '#');
+}
 
-int N, M;
+void bfs(int si, int sj){
+    queue<pair<int, int>>q;
+    q.push({si,sj});
+    vis[si][sj] = true;
 
-// Function to perform Depth First Search
-void dfs(vector<vector<char>>& maze, int x, int y) {
-    // Base case: If we reach the exit 'D', return
-    if (maze[x][y] == 'D') return;
+    while(!q.empty()){
+        pair<int, int> par = q.front();
+        int a = par.first;
+        int b = par.second;
+        q.pop();
 
-    // Mark current cell as visited
-    maze[x][y] = 'X';
-
-    // Explore in all four directions
-    for (int i = 0; i < 4; ++i) {
-        int nx = x + d[i].first;
-        int ny = y + d[i].second;
-
-        // Check if the next cell is within the bounds of the maze and is a valid cell to move
-        if (nx >= 0 && nx < N && ny >= 0 && ny < M && maze[nx][ny] == '.') {
-            dfs(maze, nx, ny); // Explore recursively
+        for(int i=0; i<4; i++) {
+            int ci = a + d[i].first;
+            int cj = b + d[i].second;
+            if(valid(ci, cj) && !vis[ci][cj]){
+                q.push({ci,cj});
+                vis[ci][cj] = true;
+                parent[ci][cj] = {a,b};
+            }
         }
     }
 }
 
 int main() {
-    // Read input N and M
-    cin >> N >> M;
+    cin>>n>>m;
+    int si= -1,sj= -1,dx= -1, dy= -1;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            cin>> a[i][j];
 
-    // Read the maze
-    vector<vector<char>> maze(N, vector<char>(M));
-    int start_x, start_y;
-
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < M; ++j) {
-            cin >> maze[i][j];
-            // Find Rezia's starting position
-            if (maze[i][j] == 'R') {
-                start_x = i;
-                start_y = j;
+            if(a[i][j] == 'D'){
+                si = i;
+                sj = j;
+            }
+            if(a[i][j] == 'R'){
+                dx = i;
+                dy = j;
             }
         }
     }
 
-    // Perform DFS from Rezia's starting position
-    dfs(maze, start_x, start_y);
+    memset(vis, false, sizeof(vis));
+    memset(parent, -1, sizeof(parent));
+    bfs(si, sj);
 
-    // Output the final maze
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < M; ++j) {
-            cout << maze[i][j];
+
+    if(!vis[dx][dy]){
+
+        for(int i=0; i<n; ++i){
+            for(int j=0; j<m; ++j){
+                cout<< a[i][j];
+            }
+            cout<<endl;
         }
-        cout << endl;
     }
+    else{
 
+        int x=dx;
+        int y=dy;
+        while(x != si || y != sj){
+            a[x][y] = 'X';
+            int temp = parent[x][y].first;
+            y = parent[x][y].second;
+            x = temp;
+        }
+        a[si][sj] = 'D';
+        a[dx][dy] = 'R';
+
+        for(int i=0; i<n; ++i) {
+            for (int j=0; j<m; ++j){
+                cout<< a[i][j];
+            }
+            cout<<endl;
+        }
+    }
     return 0;
 }
+

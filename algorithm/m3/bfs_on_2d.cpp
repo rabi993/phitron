@@ -5,6 +5,8 @@ int dis[20][20];
 vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 int n, m;
 char a[20][20];
+char af[20][20];
+
 bool valid(int i, int j)
 {
     if (i < 0 || i >= n || j < 0 || j >= m)
@@ -32,6 +34,7 @@ void bfs(int si, int sj)
                 q.push({ci, cj});
                 vis[ci][cj] = true;
                 dis[ci][cj] = dis[a][b] + 1;
+
             }
         }
     }
@@ -44,6 +47,7 @@ int main()
         for (int j = 0; j < m; j++)
         {
             cin >> a[i][j];
+            af[i][j]=a[i][j];
         }
     }
     int si, sj;
