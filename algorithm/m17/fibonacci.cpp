@@ -23,5 +23,10 @@ int main()
     cin >> n;
     memset(dp, -1, sizeof(dp));
     cout << fibo(n) << endl;
+    cout<< endl;
+    for(int i=0;i<=n;i++){
+
+        cout <<i<<"->"<< fibo(i) << endl;
+    }
     return 0;
 }

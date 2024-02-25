@@ -13,5 +13,11 @@ int main()
         a[i] = a[i - 1] + a[i - 2];
     }
     cout << a[n] << endl;
+
+    cout<< endl;
+    for(int i=0;i<=n;i++){
+
+        cout <<i<<"->"<< a[i] << endl;
+    }
     return 0;
 }
