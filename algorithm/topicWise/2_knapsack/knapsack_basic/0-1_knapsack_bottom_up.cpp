@@ -2,15 +2,19 @@
 using namespace std;
 int main()
 {
-    int n,W;
-    cin >> n>>W;
+    int n;
+    cin >> n;
     int weight[n], value[n];
     for (int i = 0; i < n; i++)
     {
         cin >> weight[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
         cin >> value[i];
     }
-
+    int W;
+    cin >> W;
     int dp[n + 1][W + 1];
     for (int i = 0; i <= n; i++)
     {
@@ -37,7 +41,14 @@ int main()
             }
         }
     }
-
+    // for (int i = 0; i <= n; i++)
+    // {
+    //     for (int j = 0; j <= W; j++)
+    //     {
+    //         cout << dp[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
     cout << dp[n][W] << endl;
     return 0;
 }
