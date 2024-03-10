@@ -9,42 +9,44 @@ int main() {
 
     int Q;
     cin >> Q;
-
-    unordered_map<int, int> freqMap;
-    int maxFreq = 0;
-    int maxFreqElement = -1;
+    set<long long int>s;
+    vector<string>f;
 
     while (Q--) {
-        int queryType;
-        cin >> queryType;
+            int q;cin>>q;
+            if(q==1){
 
-        if (queryType == 1) {
-            int X;
-            cin >> X;
-            freqMap[X]++;
-            if (freqMap[X] > maxFreq || (freqMap[X] == maxFreq && X > maxFreqElement)) {
-                maxFreq = freqMap[X];
-                maxFreqElement = X;
-            }
-        }
-        else {
-            if (freqMap.empty()) {
-                cout << "empty\n";
-            }
-            else {
-                cout << maxFreqElement << "\n";
-                freqMap.erase(maxFreqElement);
-                maxFreq = 0;
-                maxFreqElement = -1;
-                for (auto &it : freqMap) {
-                    if (it.second > maxFreq || (it.second == maxFreq && it.first > maxFreqElement)) {
-                        maxFreq = it.second;
-                        maxFreqElement = it.first;
+                long long int x;
+                if (s.empty()) {
+                    s.push(x);
+                    f.push_back(s.back())
+                }
+                else{
+                    int sz=s.size();
+                    s.push(x);
+                    int sz1=s.size();
+                    if(sz !=sz1){
+                        f.push_back(s.back())
                     }
+
                 }
             }
-        }
+            else{
+                    if (s.empty()) f.push_back("empty");
+                    else{
+                        s.pop_back();
+                    }
+
+            }
+
     }
+    for(auto e:f){
+        cout<<e<<"\n"
+    }
+
+
+
+
 
     return 0;
 }

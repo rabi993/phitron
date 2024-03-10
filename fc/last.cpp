@@ -8,7 +8,7 @@ int main() {
 
     int Q;
     cin >> Q;
-    set<long long int> s;
+    vector<long long int> s;
     vector<string> f;
 
     while (Q--) {
@@ -17,24 +17,30 @@ int main() {
         if (q == 1) {
             long long int x;
             cin >> x;
-            if (s.empty() || s.find(x) == s.end()) {
-                s.insert(x);
+            if (s.empty()) {
+                s.push_back(x);
 
                 f.push_back(to_string(x));
             }
             else{
-                if(x < *s.rbegin() || s.find(x) == s.end()){
-                    s.insert(x);
+                    sort(s.begin(), s.end());
+                if(x < s.end() || s.find(x) == true){
+                    s.push_back(x);
+                    sort(s.begin(), s.end());
 
+
+                }
+                if(x > s.end() ){
+                    s.push_back(x);
+                    sort(s.begin(), s.end());
+                    f.push_back(to_string(x));
 
                 }
             }
         } else {
             if (s.empty()) f.push_back("empty");
             else {
-                auto it = s.end();
-                it--;
-                s.erase(it);
+                s.pop_back();
             }
         }
     }

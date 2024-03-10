@@ -28,8 +28,11 @@ int main() {
                 int sz=s.size();
 
                 s.insert(x);
-                if(p<x){
+                int sz1=s.size();
+                if(sz !=sz1){
+                if(p<x  ){
                     f.push_back(to_string(x));
+                }
                 }
 
             }
