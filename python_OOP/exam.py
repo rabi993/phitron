@@ -6,6 +6,7 @@ class exam:
 
     def get_marks(self):
         return self.marks
+
     
     def written_marks_gain(self, mark):
         if mark >= 0:
@@ -17,7 +18,7 @@ class exam:
             # print( f'Here is your mark {self.marks}')
             # print(f'Your marks after fine_marks: {self.marks}')
             print(f'Your marks after fine_marks: {self.get_marks()}')
-            return self.marks
+            # return self.marks
 
         
 physics = exam(10)
@@ -27,7 +28,9 @@ physics.fine_marks(25)
 print(physics.get_marks())
 
 
+
 math = exam(10)
 math.written_marks_gain(50)
+math.fine_marks(5)
 
 print(math.get_marks())
