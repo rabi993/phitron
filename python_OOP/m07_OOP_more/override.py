@@ -24,16 +24,21 @@ class Cricketer(Person):
     def exercise(self):
         print('yes')
 
+
+    # + sign operator overload
     def __add__(self, other):
         return self.age + other.age
-    
+    # * sign operator overload
     def __mul__(self, other):
         return self.weight * other.weight
-
+    # len overload
     def __len__(self):
         return self.height
+    # > sign operator overload
     def __gt__(self, other):
         return self.age > other.age
+    
+
 sakib = Cricketer('sakib', 38, 68, 91, 'BD')
 musi = Cricketer('musi', 36, 60, 65, 'BD')
 # sakib.eat()
