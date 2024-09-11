@@ -22,7 +22,7 @@ class Customer(User):
 
     def add_to_cart(self, restaurent, item_name, quantity):
         item = restaurent.menu.find_item(item_name)
-        print(item.quantity)
+        # print(item.quantity)
         if item:
             if quantity > item.quantity:
                 print("item quantity exceded!!")
@@ -32,6 +32,27 @@ class Customer(User):
                 print('item added !!')
         else:
             print("item not found")
+
+    # def add_to_cart(self, restaurent, item_name, quantity):
+    #     item = restaurent.menu.find_item(item_name)
+    #     if item:
+    #         if quantity > item.quantity:
+    #             print(f"Not enough quantity available! Only {item.quantity} left.")
+    #         else:
+    #             item_in_cart = self.cart.find_item_in_cart(item)
+    #             if item_in_cart:
+    #                 # If the item is already in the cart, update its quantity
+    #                 item_in_cart.quantity += quantity
+    #                 print(f"Updated {item.name} in cart. New quantity: {item_in_cart.quantity}")
+    #             else:
+    #                 # If item not in cart, add it with the given quantity
+    #                 self.cart.add_item(item, quantity)
+    #                 print(f'Item {item.name} added to cart with quantity {quantity}!')
+                
+    #             # Deduct the quantity from restaurant stock
+    #             item.quantity -= quantity
+    #     else:
+    #         print("Item not found")
 
     def view_cart(self):
         print('****view Cart***')
@@ -44,6 +65,15 @@ class Customer(User):
     def pay_bill(self):
         print(f'Total {self.cart.total_price} paid Successfuly!!')
         self.cart.clear()
+        # print(f"Your total bill is {self.cart.total_price}")
+        #     while True:
+        #         amount_paid = float(input("Enter the amount to pay: "))
+        #         if amount_paid >= self.cart.total_price:
+        #             print(f'Total {amount_paid} paid successfully! Change: {amount_paid - self.cart.total_price}')
+        #             self.cart.clear()
+        #             break
+        #         else:
+        #             print(f'Insufficient amount! You need to pay at least {self.cart.total_price}')
 
 class Employee(User):
     def __init__(self, name,  email, phone, address, age, designation, salary) -> None:
@@ -89,27 +119,27 @@ class Admin(User):
 # ad.view_employee()
 
 
-mamar_restaurent = Restaurent('Mamar restaurent')
+# mamar_restaurent = Restaurent('Mamar restaurent')
 
-mn = Menu()
-item = Food_item('pizza', 12.45, 10)
-item2 = Food_item('pitha', 10, 30)
-item3 = Food_item('ruti', 20, 20)
+# mn = Menu()
+# item = Food_item('pizza', 12.45, 10)
+# item2 = Food_item('pitha', 10, 30)
+# item3 = Food_item('ruti', 20, 20)
 
-adminn = Admin('asad', 'kahim@gmail.com', 3335833123, 'Dhaka')
+# adminn = Admin('asad', 'kahim@gmail.com', 3335833123, 'Dhaka')
 
-adminn.add_new_item(mamar_restaurent, item)
-adminn.add_new_item(mamar_restaurent, item2)
-adminn.add_new_item(mamar_restaurent, item3)
+# adminn.add_new_item(mamar_restaurent, item)
+# adminn.add_new_item(mamar_restaurent, item2)
+# adminn.add_new_item(mamar_restaurent, item3)
 
-# mamar_restaurent.menu.show_menu()
+# # mamar_restaurent.menu.show_menu()
 
-customer1 = Customer('rahim', 'rahim@gmail.com', 535323123, 'Bogra')
-customer1.view_menu(mamar_restaurent)
+# customer1 = Customer('rahim', 'rahim@gmail.com', 535323123, 'Bogra')
+# customer1.view_menu(mamar_restaurent)
 
 
-item_name = input('Enter item name: ')
-item_quantity = int(input("Enter item quantity: "))
+# item_name = input('Enter item name: ')
+# item_quantity = int(input("Enter item quantity: "))
 
-customer1.add_to_cart(mamar_restaurent, item_name, item_quantity)
-customer1.view_cart()
+# customer1.add_to_cart(mamar_restaurent, item_name, item_quantity)
+# customer1.view_cart()

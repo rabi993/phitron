@@ -54,7 +54,7 @@ def admin_menue():
         print("3. View Employee")
         print("4. View item")
         print("5. Delete item")
-        print("5. Exit")
+        print("6. Exit")
         choice = int(input("Enter your Choice : "))
         if choice==1:
             item_name = input("Enter item name : ")
@@ -71,7 +71,8 @@ def admin_menue():
             age = input("Enter employee age : ")
             salary = input("Enter employee salary : ")
             address = input("Enter employee address : ")
-            admin.add_employee(name,  email, phone, address, age, designation, salary)
+            employee = Employee(name,  email, phone, address, age, designation, salary)
+            admin.add_employee(mamar_restaurent, employee)
 
         elif choice ==3:
             admin.view_employee(mamar_restaurent)
@@ -83,4 +84,20 @@ def admin_menue():
         elif choice == 6:
             break
         else:
-            print('Invalid Input')           
+            print('Invalid Input')   
+
+while True:
+    print('Welcome !!')
+    print("1. Customer ")
+    print("2. Admin ")
+    print("3. Exit ")
+    
+    choice = int(input("Enter Your choice : "))
+    if choice == 1:
+        customer_menue()
+    elif choice ==2:
+        admin_menue()
+    elif choice ==3:
+        break
+    else:
+        print("Invalid Input!!")

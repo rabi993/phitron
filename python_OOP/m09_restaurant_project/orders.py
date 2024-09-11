@@ -8,6 +8,13 @@ class Order:
         else:
             self.items[item] = item.quantity # jodii item cart e na thake
 
+
+    # def find_item_in_cart(self, item):
+    #     """Helper method to check if the item is already in the cart"""
+    #     if item in self.items:
+    #         return item
+    #     return None
+    
     def remove(self,item):
         if item in self.items:
             del self.items[item]
