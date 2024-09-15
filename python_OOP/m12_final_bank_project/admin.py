@@ -1,5 +1,3 @@
-
-
 from account import Account
 
 class Admin:

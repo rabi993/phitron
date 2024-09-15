@@ -1,5 +1,3 @@
-
-
 import random
 
 class Account:
@@ -14,8 +12,8 @@ class Account:
         self.loan_count = 0
         self.loan_amount = 0
         self.transaction_history = []
-        self.transactions_enabled = True  # New attribute for transaction status
-        self.loan_enabled = True  # New attribute for loan status
+        self.transactions_enabled = True  
+        self.loan_enabled = True  
     
     def generate_account_number(self):
         return random.randint(10000000, 99999999)

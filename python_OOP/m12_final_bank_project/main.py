@@ -1,8 +1,6 @@
-
 from bank import Bank
 from user import User
 from admin import Admin
-
 
 def user_menu(user, account):
     while True:
@@ -109,7 +107,7 @@ def admin_menu(admin):
             elif choice == "3":
                 accounts = admin.get_all_accounts()
                 for account_number, account in accounts.items():
-                    print(f"Account Number: {account_number}, Name: {account.name}, Balance: {account.balance}")
+                    print(f"Account Number: {account_number}, Name: {account.name}, Account Type: {account.account_type}, Balance: {account.balance}")
 
             elif choice == "4":
                 print(f"Total bank balance: {admin.check_total_balance()}")
