@@ -1,0 +1,151 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(140, 192, 192);
+    padding: 10px;
+}
+.logo{
+    width: 100px;
+
+}
+li:hover{
+    color: rgba(250, 235, 215, 0.39);
+    cursor: pointer;
+}
+li{
+    list-style: none;
+    font-size: 20px;
+}
+.menu-container{
+    display: flex;
+    gap: 15px;
+
+}
+.banner-image{
+    width: 350px;
+}
+.banner-container{
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    /* background-color: rgb(189, 202, 202); */
+    background-image: url(images/banner.PNG), linear-gradient(45deg, rgba(40, 80, 85, 0.555), black);
+    background-blend-mode: overlay;
+}
+.btn{
+    padding: 15px 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+.btn:hover{
+    color: rgb(67, 107, 107);
+    background-color: rgb(144, 170, 170);
+    font-weight: 790;
+}
+.hire-button{
+    background-color: aqua;
+}
+.project-button{
+    background-color: aquamarine;
+}
+.title{
+    font-size: 40px;
+}
+.banner-left{
+    width: 400px;
+    line-height: 2;
+    color: rgb(189, 202, 202) ;
+    
+}
+.banner-right{
+    
+}
+.service-container{
+    margin-top: 30px ;
+
+}
+.service-title{
+    margin-top: 30px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.service-card{
+
+    width: 300px;
+    height: 450px;
+    /* border: 1px solid gray; */
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 7px;
+    text-align: center;
+    /* margin-top: 10px; */
+
+}
+.service-img{
+    width: 180px;
+    height: 200px;
+}
+.service-card-btn:hover{
+    color: rgb(67, 107, 107);
+    background-color: rgb(144, 170, 170);
+    font-weight: 790;}
+
+.service-card-btn{
+    padding: 15px 25px;
+    background-color: rgb(56, 133, 133);
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    
+}
+
+.service-description{
+    margin: 10px;
+
+}
+.services{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+a{
+    text-decoration: none;
+}
+.contact-us{
+    padding: 50px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 4px 4px 8px gray;
+    text-align: center;
+    margin-top: 50px;
+}
+.input-box{
+    padding: 15px;
+    width: 50%;
+    margin-top: 10px;
+
+}
+.message{
+    width: 40%;
+    height: 100px;
+    margin-top: 15px;
+}
+.submit-btn{
+    width: 25%;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgb(56, 133, 133);
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+}
