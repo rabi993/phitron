@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.header-container {
+    display: flex;
+    justify-content: center;
+    /* background: rgba(213, 226, 231, 0.986); */
+    /* background: rgba(225, 226, 226, 0.986); */
+    /* margin: 0px 10%; */
+}
+
+
+body {
+    /* background-color: #f4f4f4; */
+}
+
+header {
+    background-image: url('images/bannnn.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    height: 620px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 50px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* width: 80%; */
+    padding: 0% 10%
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background-color: #f26725;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.ban_des{
+    margin: 0px;
+    /* margin-right:400px ; */
+    align-items: center;
+    /* padding: 100px 0px 0px 0px; */
+}
+.ban_man{
+    /* width: ;
+    height: ; */
+}
+/* ...... */
+/* capture-sec */
+/* .......... */
+.capture-sec{
+    margin:0% 5%;
+    background-color: #c7c2c2;
+    display: flex;
+    justify-content:space-around;
+    padding:25px 10%;
+
+}
+
+
+.services {
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.dot{
+    width: 200px;
+
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0% 10%;
+}
+
+.service-box {
+    background-color: #f0eded;
+    width: 30%;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: #333 solid 1px;
+}
+
+.servicelogo{
+    width: 100px;
+    height: auto;
+}
+
+.service-box h3 {
+    font-size: 24px;
+    margin-top: 20px ;
+}
+.dot1{
+    width: 200px;
+    
+}
+
+.service-box p {
+    color: #473e3e;
+}
+
+
+.half-width{
+    width: 50%;
+    float: left;
+    margin-bottom: 15px;
+    
+    
+
+}
+.half-width img{
+    width: 100%;
+
+}
+.mid{
+/*      */
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    margin: 0% 10%;
+    
+}
+#midImg{
+    float: left;
+    /* padding-top: 40px; */
+    padding-left: 20px;
+    height: 650px;
+     width: 650px;
+}
+#midDes{
+    float:left;
+    width: 40%;
+    padding-top: 150px;
+    /* padding-left: 5%; */
+    margin-left: 0%;
+   
+   }
+.half-width .btn {
+    padding: 10px 20px;
+    background-color: #25a0f2;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.phone{
+    display: flex;
+    justify-content:left
+}
+
+
+
+
+.footer-content{
+    display: flex;
+    justify-content:space-evenly;
+    gap: 20px;
+    background-color: #333;
+    color: white;
+    padding: 50px 10%;
+}
+
+.footer-col {
+    width: 30%;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col p {
+    color: #bbb;
+}
+
+input[type="email"] {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+.footImage{
+    display: flex;
+
+}
+.address{
+    display: flex;
+    justify-content:left;
+    margin-left: -60px;
+    margin-bottom: 15px;
+}
+.addr{
+    /* gap: 20px; */
+}
+.addditails{
+    margin-left: 50px;
+}

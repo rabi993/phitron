@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+   
+}
+
+.banner {
+
+    background-image: url(../images/banner/banner3.png);
+    background-repeat: no-repeat;
+    height: 965px;
+    width: 100%;
+    background-size: cover;
+    color: white;
+    text-align: right;
+    position: absolute;
+
+}
+
+.btn {
+    color: #005FAC;
+    font-weight: 700;
+    font-size: 20px;
+    height: 64px;
+    border: 0;
+    padding: 21px 25px 20px 26px;
+    border-radius: 5px;
+    background-color: #e6e9eb;
+
+}
+button:hover {
+    background-color: rgba(31, 204, 235, 0.712);
+    color: rgb(9, 65, 9);
+}
+.sub{
+    background-color: rgba(24, 24, 190, 0.986);
+    color: #e6e9eb;
+}
+.sub:hover{
+    background-color: rgba(31, 204, 235, 0.712);
+    color: rgb(9, 65, 9);
+}
+.banner-content {
+    padding: 286px 280px 0 845px;
+}
+
+.banner-title {
+
+    font-weight: 700;
+    font-size: 65px;
+    color: #FFFFFF;
+    line-height: 76px;
+    padding-left: 200px;
+}
+
+.banner-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff77;
+    padding-top: 24px;
+    padding-bottom: 32px;
+    padding-left: 290px;
+
+}
+
+/* previous part styles................................. */
+.previous {
+
+    padding-bottom: 130px;
+    width: 1072px;
+    height: 723.3px;
+    background-color: #FFFFFF;
+    display: flex;
+    padding-top: 1039px;
+    padding-left: 404px;
+    padding-right: 404px;
+    align-content: center;
+
+
+
+}
+
+.previous-content {
+    padding-top: 210px;
+    padding-left: 100px;
+}
+
+.previous-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #151414;
+}
+
+.previous-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #444343;
+    padding-top: 24px;
+    padding-bottom: 16px;
+}
+
+.previous-check {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+/* My plan styles............................... */
+.plan {
+    padding-bottom: 130px;
+}
+
+.plan-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #151414;
+    padding-bottom: 50px;
+}
+
+.plan-content {
+    display: flex;
+    padding-left: 230px;
+    padding-right: 230px;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-item {
+    padding-left: 43px;
+    padding-right: 43px;
+    
+
+
+}
+
+.plan-item h3 {
+    padding-top: 24px;
+    padding-bottom: 16px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    color: #151414;
+}
+
+.plan-item h4 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    color: #737272;
+}
+
+.plan-item img {
+    padding-left: 50px;
+}
+
+
+/* watch gradient styles.......................... */
+.watch {
+    padding-right: 350px;
+    padding-left: 380px;
+    padding-bottom: 130px;
+}
+
+.gradient {
+    height: 300px;
+    width: 1140px;
+    top: 2221.96px;
+    background: linear-gradient(90deg, #005FAC 0%, rgba(0, 95, 172, 0) 80%), url("../images/watch.png");
+
+    /* background: linear-gradient(to left, transparent, #005FAC),
+          url("../images/watch.png"); */
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    background-position: center;
+
+}
+
+.gradient-content {
+    padding-left: 100px;
+    padding-top: 60px;
+}
+
+.gradient-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #FFFFFF;
+    padding-bottom: 24px;
+
+}
+/* work styles................................... */
+.work {
+    
+    padding-bottom: 130px;
+    padding-left: 230px;
+    padding-right: 230px;
+}
+.work-title{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #151414;
+    /* padding-bottom: 50px; */
+}
+
+
+.work .work-description {
+    padding-left: 280px;
+    padding-right: 280px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #444343;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    text-align: center;
+}
+
+.work-container {
+    display: flex;
+    gap: 24px;
+    text-align: center;
+}
+
+.skill {
+    background: #FFFFFF;
+    box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.445);
+    /* border-radius: 15% 5%; */
+    border-radius: 10% 0% 15% 5%;
+    padding: 30px;
+
+}
+
+.skill-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.skill-description {
+    color: #757575;
+}
+/* footer part styles....................... */
+.last {
+    display: flex;
+    gap: 100px;
+    background-color: #151414;
+    /* padding: 130px 200px; */
+    color: #FFFFFF;
+    padding-left: 230px;
+    padding-right: 230px;
+    padding-top: 130px;
+    padding-bottom: 100px;
+    /* align-items: center; */
+    /* align-content: center;
+    justify-content: center;
+    justify-items: center; */
+}
+.future{
+    padding-right: 430px;
+}
+.future a {
+    text-decoration: none;
+    
+}
+
+.f-title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 53px;
+    padding-bottom: 16px;
+}
+
+.f-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.mail {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 24px;
+}
+
+#phone {
+    padding-bottom: 32px;
+}
+
+.subscribe {
+    
+    
+}
+
+.subscribe-title {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 29px;
+}
+
+form {
+    padding-top: 32px;
+
+
+}
+
+input[type="email"] {
+    margin-bottom: 24px;
+    border: 0;
+    width: 100%;
+    padding: 18px 16px;
+    border-radius: 5px;
+    font-size: 20px;
+    
+}
+

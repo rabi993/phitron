@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*.............................
+            header  styles
+ ............................*/
+.header-container {
+    display: flex;
+    justify-content: center;
+    /* background: rgba(213, 226, 231, 0.986); */
+    background: rgba(225, 226, 226, 0.986);
+}
+
+.header-section {
+    width: 80%;
+}
+
+.logo-title {
+    font-size: 45px;
+    font-weight: 700;
+    color: #131313;
+}
+
+.nav-ber {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.menus {
+    display: flex;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #424242;
+}
+
+.menu .menu-title {
+    margin-right: 40px;
+}
+
+/* ............header title  styles
+.......................................*/
+.header-section-container {
+    text-align: center;
+}
+
+.header-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: #131313;
+    padding-top: 80px;
+}
+
+.header-description {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.button-p {
+    padding: 20px 25px;
+    background-color: rgb(118 188 226);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.banner-image img {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+/* .........................
+quick-list section styles 
+..............................*/
+.quick-list-section {
+    display: flex;
+    justify-content: center;
+
+    background: rgba(232, 233, 235, 0.986);
+
+}
+
+.quick-list {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-top: 85px;
+
+
+
+}
+
+.quick-list-images {
+    width: 50%;
+}
+
+.quick-list-blog {
+    width: 50%;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+}
+
+.images img {
+    width: 240px;
+    height: 240px;
+}
+
+.quick-list-blog-title {
+    font-size: 45px;
+    font-weight: 500;
+    color: #131313;
+}
+
+.quick-list-blog-description {
+    color: #727272;
+    padding: 24px 0;
+    font-size: 16px;
+
+}
+
+.quick {
+    color: #727272
+}
+
+.feat {
+    color: rgb(118 188 226)
+}
+
+/* love section styles
+.................................. */
+.main-container {
+    display: flex;
+    justify-content: center;
+    background: rgba(232, 233, 235, 0.986);
+
+}
+
+.main-container-section {
+    width: 80%;
+}
+
+.love-enjoy-con {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 120px;
+
+}
+
+.right-love {
+    padding: 20px 0px 0 0;
+}
+
+.love-image img {
+    width: 100%;
+
+}
+
+.enjoy-title {
+    font-size: 45px;
+    font-weight: 700;
+    border-left: 4px solid rgb(118 188 226);
+    padding-left: 20px;
+}
+
+.enjoy-description {
+    padding: 20px 0;
+    color: #727272;
+}
+
+.sub-title-box {
+    box-shadow: rgba(0, 0, 0, 0.199) 0px 4px 12px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.left-box {
+    padding-top: 16px;
+}
+
+.love-sub-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #131313;
+    padding-bottom: 10px;
+}
+
+.sub-title-des {
+    font-size: 16px;
+    padding-top: 10px;
+    color: #727272;
+
+}
+
+/* float button...........
+............................ */
+.float-button {
+    position: absolute;
+    margin-left: 40%;
+    margin-top: -150px;
+}
+
+.ex-button {
+    padding: 45px 42px;
+    color: #FFFFFF;
+    background-color: rgb(118 188 226);
+    border: none;
+    border-radius: 30%;
+}
+
+.ex-title {
+    font-size: 65px;
+    font-weight: 700;
+}
+
+.ex-description {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+/* extra section styles */
+.watch {
+
+    display: grid;
+    grid-template-columns: 1 1fr;
+    justify-content: center;
+
+    margin-top: 150px;
+}
+
+.gradient {
+    height: 300px;
+    width: 1140px;
+    top: 2221.96px;
+    background: linear-gradient(90deg, rgb(118 188 226) 0%, rgba(5, 43, 46, 0.39) 80%), url("../images/watch.png");
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    background-position: center;
+
+}
+
+.gradient-content {
+    padding-left: 100px;
+    padding-top: 60px;
+}
+
+.gradient-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #FFFFFF;
+    padding-bottom: 24px;
+
+}
+
+.call-now {
+    padding: 20px 25px;
+    background-color: rgb(2, 58, 88);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* ................
+..........facts section styles......
+........................... */
+
+.facts-section {
+    margin-top: 150px;
+}
+
+.facts-title {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.win-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 60px 0;
+    color: rgb(2, 58, 88);
+}
+
+.facts-description {
+    color: #727272;
+    font-size: 16px;
+    padding: 20px 0 50px 0;
+}
+
+.win-box {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 40px 40px;
+    border: 1px solid rgba(1, 36, 54, 0.233);
+    border-radius: 15px;
+    background: rgb(118 188 226);
+
+}
+
+.win-box:hover {
+    color: #fff;
+    transform: rotate(360deg);
+    transition: width 0s, height 0s, transform .1s;
+}
+
+/* spons...........styles */
+.sp {
+    text-align: center;
+    padding-top: 130px;
+}
+
+.sp-title {
+    font-size: 45px;
+    font-weight: 700;
+    padding-bottom: 24px;
+}
+
+.sp-description {
+    color: #727272;
+}
+
+.sp-logo {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-bottom: 80px;
+    opacity: 75%;
+}
+
+/* footer styles ..................
+.......................... */
+footer {
+    padding: 30px 0 30px 0;
+    background: rgb(118 188 226);
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    color: #424242;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+
+/* .................
+responsive
+....................... */
+@media only screen and (max-width: 576px) {
+
+    .header-section {
+        width: 100%;
+    }
+
+    .header-title {
+        padding-top: 46px;
+    }
+
+    .header-section-container {
+        padding: 0 20px;
+    }
+
+    .header-description br {
+        display: none;
+    }
+
+    .nav-ber {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .quick-list-section {
+        width: 100%;
+    }
+
+    .quick-list {
+        flex-direction: column-reverse;
+        padding-top: 42px;
+    }
+
+    .quick-list-blog {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .images {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* .quick-list-blog-title{
+        font-size: 45px;
+        
+    } */
+    .quick-list-blog-description {
+        display: none;
+        
+    }
+
+    .images img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .right-love {
+        padding: 20 0px;
+        
+        
+    }
+    .enjoy-description{
+        display: none;
+    }
+    .main-container-section {
+        width: 100%;
+    }
+
+    .love-enjoy-con {
+        flex-direction: column;
+        padding: 0 10px;
+        gap: 40px;
+        margin-top: 36px;
+    }
+
+    .float-button {
+        margin-left: 50px;
+        margin-top: 10px;
+       /* display: none; */
+       /* padding-bottom: 100px; */
+    }
+    .watch{
+        display: none;
+    }
+    .facts-section {
+        margin-top: 220px;
+        padding: 0 20px;
+    }
+
+    .facts-description  {
+        display: none;
+    }
+
+    .win-section {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 30px;
+    }
+    .sp{
+        padding: 20px 20px 20px 20px;
+        
+    }
+    .sp-logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+   
+    
+    
+}

@@ -1,0 +1,147 @@
+body{
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.name-highlight{
+    color: rgb(255, 81, 0);
+}
+.button{
+    text-decoration: none;
+    background-image: linear-gradient(45deg, lightsalmon, tomato);
+    color: white;
+    padding: 10px 20px;
+    border-radius: px;
+    font-weight: bold;
+    
+}
+.half-width{
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+    
+    padding-top: 200px;
+    
+
+}
+section{
+    height: 500px; 
+    padding-bottom:0px ;
+}
+.half-width img{
+    width: 100%;
+
+}
+.top{
+    background-image: url("images/header-bg.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 1000px;
+    
+    
+}
+#top1{
+    width: 35%;
+    float: left;
+    padding-top: 400px;
+    padding-left: 200px;
+}
+#top2{
+ float:left;
+ height: 500px;
+ padding-top: 200px;
+ margin-left: 0%;
+ padding-top: 100px;
+ height: 800px;
+ width: 800px;
+
+}
+#top-image{
+    margin-top: 0%;
+    padding-bottom: 0%;
+}
+.mid{
+    background-image: url("images/biography-bg.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 900px;
+    margin: 0px;
+    
+}
+#top3{
+    float: left;
+    padding-top: 80px;
+    padding-left: 20px;
+    height: 600px;
+     width: 600px;
+}
+#top4{
+    float:left;
+    width: 40%;
+    padding-top: 300px;
+    padding-right: 5%;
+   
+   }
+.mlw{
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+   }
+.latest{
+    background-image: url("images/latest-work-bg.png");
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 700px;
+    padding-top: 100px;
+   }
+.l{
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 450px;
+    height: 300px;
+    
+   }
+.ldiv{
+    margin: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 0px;
+    
+}
+#l1{
+    float: left;
+}
+#l2{
+    
+}
+#l3{
+    float: right;
+}
+.footer{
+    background-image: url("images/footer-bg.png");
+    background-repeat: no-repeat;
+    padding-top: 5%;
+    width: 100%;
+    height: 1000px;
+}
+.f1-div{
+    
+     text-align: center;
+     margin-left:30% ;
+     margin-right:30% ;
+     
+     padding-bottom: 50px;
+}
+.mail-div{
+    text-align: center;
+    color: white;
+    margin-left:25% ;
+    margin-right: 25%;
+    height: 200px;
+    border-radius: 15px;
+    padding-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-image: linear-gradient(-180deg, rgb(206, 69, 183), rgb(255, 71, 157));
+}
