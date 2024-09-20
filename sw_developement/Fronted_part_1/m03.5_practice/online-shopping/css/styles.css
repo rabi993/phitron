@@ -1,0 +1,38 @@
+
+.rating-icon{
+    width: 20px;
+}
+#floatnews{
+    margin-left: 450px;
+}
+#cardover{
+    padding-top:100px ;
+    padding-right: 50px;
+    padding-left: 4cqw;
+    /* opacity: .5; */
+}
+#cardover1{
+    padding-top:250px ;
+    /* padding-right: 400px; */
+    /* opacity: .9; */
+}
+.btnover{
+    margin-top: -10px;
+}
+.Productdet{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}
+.Productdet div{
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+
+}
+#star{
+    width: 35px;
+}
+#cart{
+    width: 30px;
+}
