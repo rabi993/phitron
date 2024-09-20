@@ -36,3 +36,45 @@
 #cart{
     width: 30px;
 }
+
+.footer-content{
+    display: flex;
+    justify-content:space-evenly;
+    gap: 20px;
+    background-color: #333;
+    color: white;
+    padding: 50px 10%;
+}
+
+.footer-col {
+    width: 30%;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col p {
+    color: #bbb;
+}
+.address{
+    display: flex;
+    justify-content:left;
+    margin-left: -60px;
+    margin-bottom: 15px;
+}
+
+
+.addditails{
+    margin-left: 50px;
+}
