@@ -82,8 +82,6 @@
 
 // Question number 6
 
-// Array of names
-
 
 // function LName(f) {
 //     let longestName = f[0];
@@ -114,18 +112,57 @@
 
 // Question number 8
 
-function LName(a) {
-    let largNumber = a[0];
+// function LName(a) {
+//     let largNumber = a[0];
 
-    for (let i = 0; i < a.length; i++) {
-        if (a[i] > largNumber){
-            largNumber = a[i]; 
-        }
+//     for (let i = 0; i < a.length; i++) {
+//         if (a[i] > largNumber){
+//             largNumber = a[i]; 
+//         }
+//     }
+//     return largNumber;
+// }
+
+
+// const array = [1, 2, 3, 3, 4, 4, 5, 6, 7, 80, 9, 10];
+// const largest = LName(array);
+// console.log(`The largest number is: ${largest}`);
+
+
+
+// Question number 9
+
+function calculateSavings(payments, livingCost) {
+
+    if(!Array.isArray(payments) || typeof livingCost != 'number') {
+        return "invalid input";
     }
-    return largNumber;
+    
+    let sum = 0;
+
+    for(let i = 0; i< payments.length; i++){
+
+        if(payments[i]>= 3000){
+            sum += payments[i] *0.8;
+        }
+        else{
+            sum += payments[i];
+        }
+        
+    }
+    
+    const savings = sum  - livingCost; 
+
+    if(savings >= 0) {
+        return savings; 
+    } 
+    else{
+        return "earn more"; 
+    }
 }
 
-
-const array = [1, 2, 3, 3, 4, 4, 5, 6, 7, 80, 9, 10];
-const largest = LName(array);
-console.log(`The largest number is: ${largest}`);
+console.log(calculateSavings([1000, 2000, 3000], 5400)); 
+console.log(calculateSavings([1000, 2000, 2500], 5000)); 
+console.log(calculateSavings([900, 2700, 3400], 10000)); 
+console.log(calculateSavings(100, [900, 2700, 3400]));   
+console.log(calculateSavings( [900, 2700, 3400] , 'ftg'));   
