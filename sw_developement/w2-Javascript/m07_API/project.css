@@ -1,0 +1,21 @@
+.mainContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cartContainer{
+    width: 70%;
+    box-shadow: 4px 4px 8px gray;
+    margin: auto;
+    text-align: center;
+}
+.productContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+}

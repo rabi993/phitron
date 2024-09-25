@@ -86,3 +86,37 @@ document.getElementById("handleAdd").addEventListener("click", (event)=>{
 //         document.getElementById("searchBox").value ='';
 
 // }
+
+
+
+
+fetch("https://jsonplaceholder.typicode.com/users")
+.then(res => res.json())
+.then(data => {
+    // console.log(data);
+    displayData(data)
+})
+
+.catch((err)=> {
+    console.log(err);
+});
+
+const displayData =(userData)=> {
+    const container = document.getElementById("userData-Container");
+    
+    userData.forEach(user => {
+        // console.log(user);
+        const div = document.createElement("div");
+        div.classList.add("user");
+        
+        div.innerHTML =`
+        <h4>title</h4>
+        <p>Description</p>
+        <button>Details</button>
+
+        `;
+        container.appendChild(div);
+        
+        
+    });
+}

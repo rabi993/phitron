@@ -14,3 +14,14 @@ input{
     padding: 10px;
     width: 400px;
 }
+.user{
+    padding: 20px;
+    border: 1px solid gray;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+.userContainer{
+    display: flex;
+    justify-content: center;
+}
