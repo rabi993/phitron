@@ -1,6 +1,7 @@
 .mainContainer{
     display: flex;
     justify-content: space-around;
+    
 }
 
 .cartContainer{
@@ -8,6 +9,8 @@
     box-shadow: 4px 4px 8px gray;
     margin: auto;
     text-align: center;
+    /* position: fixed; */
+    
 }
 .productContainer{
     display: flex;
@@ -18,4 +21,15 @@
     margin: auto;
     text-align: center;
 
+}
+.card{
+    border: 1px solid gray;
+    padding: 10px;
+}
+.cardImg{
+    width: 150px;
+}
+.cartInfo{
+    display: flex;
+    justify-content: space-around;
 }
