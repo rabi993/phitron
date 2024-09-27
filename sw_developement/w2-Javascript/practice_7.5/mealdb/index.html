@@ -4,27 +4,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phone Hunter Old</title>
+  <title>meal Hunter Old</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
   <header>
-    <h1>Welcome to my phone Hunter!</h1>
+    
+
+    <h1>Welcome to my meal Hunter!</h1>
   </header>
   <main class="container">
 
     <section>
       <div class="mb-3 w-50">
         <input id="search-field" type="email" class="form-control" id="exampleFormControlInput1"
-          placeholder="search your phone">
+          placeholder="search your meal">
         <div id="btn-search" class="btn btn-primary">Search</div>
       </div>
     </section>
     <!-- display search result -->
     <section>
-      <div id="phones-container" class="row row-cols-1 row-cols-md-3 g-4">
+      <div id="meals-container" class="row row-cols-1 row-cols-md-3 g-4">
       </div>
       <div id="no-found-message" class="mt-4 d-none ">
         <h3 class="text-warning ">No item Found! Please try a new search</h3>
@@ -48,15 +50,15 @@
 
 
       <!-- Modal -->
-      <div class="modal fade" id="phoneDetailModal" tabindex="-1" aria-labelledby="phoneDetailModalLabel"
+      <div class="modal fade" id="mealDetailModal" tabindex="-1" aria-labelledby="mealDetailModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="phoneDetailModalLabel"></h1>
+              <h1 class="modal-title fs-5" id="mealDetailModalLabel"></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div id="phone-details" class="modal-body">
+            <div id="meal-details" class="modal-body">
 
             </div>
             <div class="modal-footer">
