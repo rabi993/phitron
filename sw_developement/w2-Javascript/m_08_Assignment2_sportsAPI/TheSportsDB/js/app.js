@@ -3,45 +3,37 @@ const loadPlayers = async (searchText = '', dataLimit) => {
     const res = await fetch(url);
     const data = await res.json();
     console.log(data.player);
-    displayPlayers(data.player, dataLimit); // Display players
+    displayPlayers(data.player, dataLimit); 
 };
 
 
-let cart = []; // Cart array to hold added players
-let currentPlayer = null; // To store the current player shown in the modal
+let cart = []; 
+let currentPlayer = null; 
 
-// Function to add player to cart
 const addToCart = (player) => {
-    // Check if player already exists in the cart
     if (cart.some(p => p.idPlayer === player.idPlayer)) {
         alert("Player is already in the cart.");
         return;
     }
 
-    // Limit cart to 5 players
     if (cart.length >= 11) {
         alert("You can only add 11 players to the cart.");
         return;
     }
 
-    // Add player to the cart
     cart.push(player);
     updateCartDisplay();
     
 };
 
-// Function to update cart display
 const updateCartDisplay = () => {
     const cartList = document.getElementById('cart-list');
     const cartCount = document.getElementById('cart-count');
     
-    // Clear the current cart list
     cartList.innerHTML = '';
 
-    // Update cart count
     cartCount.textContent = cart.length;
 
-    // Populate the cart with players
     cart.forEach(player => {
         const listItem = document.createElement('li');
         listItem.classList.add('list-group-item');
@@ -50,10 +42,9 @@ const updateCartDisplay = () => {
     });
 };
 
-// Function to display players in cards
 const displayPlayers = (players, dataLimit) => {
     const playersContainer = document.getElementById('Players-container');
-    playersContainer.textContent = ''; // Clear previous results
+    playersContainer.textContent = ''; 
 
     const showAll = document.getElementById('show-all');
 
@@ -94,20 +85,16 @@ const displayPlayers = (players, dataLimit) => {
                     <p><strong>Description:</strong> ${player.strDescriptionEN.slice(0,50)}</p>
                     <div class="icdiv">
                         <div>
-                            <a href="${player.strFacebook}"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
+                            <a href="${player.strFacebook}" target="_blank"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
         
                         </div>
                         <div>
-                            <a href="${player.strTwitter}"><img class="icon" src="images/twitter.png" alt=""></a>
+                            <a href="${player.strTwitter}" target="_blank"><img class="icon" src="images/twitter.png" alt=""></a>
                         </div>
                         <div>
-                            <a href="${player.strTwitter}"><img class="icon" src="images/instagram (1).png" alt=""></a>
+                            <a href="${player.strTwitter}" target="_blank"><img class="icon" src="images/instagram (1).png" alt=""></a>
                         </div>
                     </div>
-
-
-
-
 
                     <button onclick="loadPlayerDetails('${player.idPlayer}')" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#PlayerDetailModal">Details</button>
                     
@@ -117,8 +104,6 @@ const displayPlayers = (players, dataLimit) => {
             </div>`;
         playersContainer.appendChild(playerDiv);
     });
-    
-
     
 };
 
@@ -133,7 +118,6 @@ const loadPlayerDetails1 = async (id) => {
 };
 
 
-// Function to load player details in modal
 const loadPlayerDetails = async (id) => {
     const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${id}`;
     const res = await fetch(url);
@@ -143,9 +127,8 @@ const loadPlayerDetails = async (id) => {
 };
 
 
-// Function to display player details in the modal
 const displayPlayerDetails = (player) => {
-    currentPlayer = player; // Store the current player to use in "Add to Cart"
+    currentPlayer = player; 
 
     const modalTitle = document.getElementById('PlayerDetailModalLabel');
     modalTitle.innerText = player.strPlayer;
@@ -165,14 +148,14 @@ const displayPlayerDetails = (player) => {
         <p><strong>Description:</strong> ${player.strDescriptionEN.slice(0,50)}</p>
         <div class="icdiv">
             <div>
-                <a href="${player.strFacebook}"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
+                <a href="${player.strFacebook}" target="_blank"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
 
             </div>
             <div>
-                <a href="${player.strTwitter}"><img class="icon" src="images/twitter.png" alt=""></a>
+                <a href="${player.strTwitter}" target="_blank"><img class="icon" src="images/twitter.png" alt=""></a>
             </div>
             <div>
-                <a href="${player.strTwitter}"><img class="icon" src="images/instagram (1).png" alt=""></a>
+                <a href="${player.strTwitter}" target="_blank"><img class="icon" src="images/instagram (1).png" alt=""></a>
             </div>
         </div>
         
@@ -181,14 +164,12 @@ const displayPlayerDetails = (player) => {
 
 };
 
-// Add current modal player to cart
 document.getElementById('modal-add-to-cart').addEventListener('click', () => {
     if (currentPlayer) {
         addToCart(currentPlayer);
     }
 });
 
-// Process search function
 const processSearch = (dataLimit) => {
     // toggleSpinner(true);
     const searchField = document.getElementById('search-field');
@@ -196,9 +177,8 @@ const processSearch = (dataLimit) => {
     loadPlayers(searchText, dataLimit);
 };
 
-// Event listeners for search buttons
 document.getElementById('btn-search').addEventListener('click', function () {
-    processSearch(9); // Limit search to 6 players
+    processSearch(9); 
 });
 
 document.getElementById('search-field').addEventListener('keypress', function (event) {
@@ -208,10 +188,9 @@ document.getElementById('search-field').addEventListener('keypress', function (e
 });
 
 document.getElementById('btn-show-all').addEventListener('click', function () {
-    processSearch(); // Show all players when 'Show All' is clicked
+    processSearch(); 
 });
 
-// Toggle spinner function
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
@@ -221,7 +200,6 @@ const toggleSpinner = isLoading => {
     }
 };
 
-// Load default players on page load
 window.onload = () => {
     toggleSpinner(true)
     loadPlayers('ab', 9);
