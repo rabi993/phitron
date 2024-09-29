@@ -7,20 +7,24 @@
   <title>meal Hunter Old</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header>
-    
-
-    <h1>Welcome to my meal Hunter!</h1>
+  <header class="text-center welcome">
+    <h1>Welcome to my MealDB!</h1>
   </header>
-  <main class="container">
+  <main class="container ddd">
+    <section>     
+        <div id="meal-details" class=" ddd1">       
+    </section>
 
     <section>
-      <div class="mb-3 w-50">
-        <input id="search-field" type="email" class="form-control" id="exampleFormControlInput1"
+      <div class="mb-3  search">
+        
+          <input id="search-field" type="email" class="form-control " id="exampleFormControlInput1"
           placeholder="search your meal">
+        
         <div id="btn-search" class="btn btn-primary">Search</div>
       </div>
     </section>
@@ -31,7 +35,7 @@
       <div id="no-found-message" class="mt-4 d-none ">
         <h3 class="text-warning ">No item Found! Please try a new search</h3>
       </div>
-      <div id="show-all" class="text-center d-none">
+      <div id="show-all" class="text-center d-none mb-3 mt-2">
         <div id="btn-show-all" class="btn btn-primary">Show All</div>
       </div>
 
@@ -44,32 +48,7 @@
         </div>
       </div>
     </section>
-    <!-- modal content -->
-    <section>
-      <!-- Button trigger modal -->
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="mealDetailModal" tabindex="-1" aria-labelledby="mealDetailModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="mealDetailModalLabel"></h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div id="meal-details" class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section>
+    
 
   </main>
 
