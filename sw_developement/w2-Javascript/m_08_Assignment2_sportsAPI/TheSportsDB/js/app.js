@@ -2,6 +2,7 @@ const loadPlayers = async (searchText = '', dataLimit) => {
     const url = `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${searchText}`;
     const res = await fetch(url);
     const data = await res.json();
+    console.log(data.player);
     displayPlayers(data.player, dataLimit); // Display players
 };
 
@@ -18,14 +19,15 @@ const addToCart = (player) => {
     }
 
     // Limit cart to 5 players
-    if (cart.length >= 5) {
-        alert("You can only add 5 players to the cart.");
+    if (cart.length >= 11) {
+        alert("You can only add 11 players to the cart.");
         return;
     }
 
     // Add player to the cart
     cart.push(player);
     updateCartDisplay();
+    
 };
 
 // Function to update cart display
@@ -54,39 +56,72 @@ const displayPlayers = (players, dataLimit) => {
     playersContainer.textContent = ''; // Clear previous results
 
     const showAll = document.getElementById('show-all');
-    if (dataLimit && players.length > 6) {
-        players = players.slice(0, 6); // Limit to 6 players
+
+    const noPlayer = document.getElementById('no-found-message');
+    toggleSpinner(false);
+
+    if (!players || players.length === 0) {
+        noPlayer.classList.remove('d-none');
+        showAll.classList.add('d-none'); 
+        return; 
+    } 
+    else {
+        noPlayer.classList.add('d-none');
+    }
+
+    if (dataLimit && players.length > 9) {
+        players = players.slice(0, 9); 
         showAll.classList.remove('d-none');
-    } else {
+    } 
+    else {
         showAll.classList.add('d-none');
     }
 
-    const noPlayerMessage = document.getElementById('no-found-message');
-    if (!players || players.length === 0) {
-        noPlayerMessage.classList.remove('d-none');
-    } else {
-        noPlayerMessage.classList.add('d-none');
-        players.forEach(player => {
-            const playerDiv = document.createElement('div');
-            playerDiv.classList.add('col');
-            playerDiv.innerHTML = `
-                <div class="card">
-                    <img src="${player.strThumb}" class="card-img-top p-4" alt="${player.strPlayer}">
-                    <div class="card-body">
-                        <h5 class="card-title">${player.strPlayer}</h5>
-                        <p class="card-text">Position: ${player.strPosition}</p>
-                        <button onclick="loadPlayerDetails('${player.idPlayer}')" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#PlayerDetailModal">Details</button>
-                        
-                        <button id="bbb" onclick="loadPlayerDetails1('${player.idPlayer}')" class="btn btn-primary   mt-2">Add to Cart</button>
-                        
+    players.forEach(player => {
+        const playerDiv = document.createElement('div');
+        playerDiv.classList.add('col');
+        playerDiv.innerHTML = `
+            <div class="card">
+                <img src="${player.strThumb}" class="card-img-top p-4 cardImg" alt="${player.strPlayer}">
+                
+                <div class="card-body pm">
+                    <h5 class="card-title text-center">${player.strPlayer}</h5>
+                    <hr>
+                    <p><strong>Nationality:</strong> ${player.strNationality}</p>
+                    <p><strong>Team:</strong> ${player.strTeam}</p>
+                    <p><strong>Sport:</strong> ${player.strSport}</p>
+                    <p><strong>Position:</strong> ${player.strPosition}</p>
+                    <p><strong>Description:</strong> ${player.strDescriptionEN.slice(0,50)}</p>
+                    <div class="icdiv">
+                        <div>
+                            <a href="${player.strFacebook}"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
+        
+                        </div>
+                        <div>
+                            <a href="${player.strTwitter}"><img class="icon" src="images/twitter.png" alt=""></a>
+                        </div>
+                        <div>
+                            <a href="${player.strTwitter}"><img class="icon" src="images/instagram (1).png" alt=""></a>
+                        </div>
                     </div>
-                </div>`;
-            playersContainer.appendChild(playerDiv);
-        });
-    }
 
-    toggleSpinner(false);
+
+
+
+
+                    <button onclick="loadPlayerDetails('${player.idPlayer}')" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#PlayerDetailModal">Details</button>
+                    
+                    <button id="bbb" onclick="loadPlayerDetails1('${player.idPlayer}')" class="btn btn-primary   ">Add to Cart</button>
+                    
+                </div>
+            </div>`;
+        playersContainer.appendChild(playerDiv);
+    });
+    
+
+    
 };
+
 
 const loadPlayerDetails1 = async (id) => {
     const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${id}`;
@@ -94,6 +129,7 @@ const loadPlayerDetails1 = async (id) => {
     const data = await res.json();
     currentPlayer= data.players[0];
     addToCart(currentPlayer);
+    
 };
 
 
@@ -116,11 +152,33 @@ const displayPlayerDetails = (player) => {
 
     const playerDetails = document.getElementById('Player-details');
     playerDetails.innerHTML = `
-        <img src="${player.strThumb}" class="img-fluid mb-3" alt="${player.strPlayer}">
+        <img src="${player.strThumb}" class="img-fluid mb-3 cardImg1" alt="${player.strPlayer}">
+        
+        
+        <hr>
         <p><strong>Nationality:</strong> ${player.strNationality}</p>
         <p><strong>Team:</strong> ${player.strTeam}</p>
-        <p><strong>Position:</strong> ${player.strPosition}</p>
-        <p><strong>Description:</strong> ${player.strDescriptionEN}</p>`;
+        <p><strong>Sport:</strong> ${player.strSport}</p>
+        <p><strong>Gender:</strong> ${player.strGender}</p>
+        <p><strong>Weight:</strong> ${player.strWeight}</p>
+        <p><strong>Height:</strong> ${player.strHeight}</p>
+        <p><strong>Description:</strong> ${player.strDescriptionEN.slice(0,50)}</p>
+        <div class="icdiv">
+            <div>
+                <a href="${player.strFacebook}"><img  class="icon" src="images/facebook-logo.png" alt=""></a>
+
+            </div>
+            <div>
+                <a href="${player.strTwitter}"><img class="icon" src="images/twitter.png" alt=""></a>
+            </div>
+            <div>
+                <a href="${player.strTwitter}"><img class="icon" src="images/instagram (1).png" alt=""></a>
+            </div>
+        </div>
+        
+        `;
+        
+
 };
 
 // Add current modal player to cart
@@ -132,7 +190,7 @@ document.getElementById('modal-add-to-cart').addEventListener('click', () => {
 
 // Process search function
 const processSearch = (dataLimit) => {
-    toggleSpinner(true);
+    // toggleSpinner(true);
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value.trim();
     loadPlayers(searchText, dataLimit);
@@ -140,12 +198,12 @@ const processSearch = (dataLimit) => {
 
 // Event listeners for search buttons
 document.getElementById('btn-search').addEventListener('click', function () {
-    processSearch(6); // Limit search to 6 players
+    processSearch(9); // Limit search to 6 players
 });
 
 document.getElementById('search-field').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-        processSearch(6);
+        processSearch(9);
     }
 });
 
@@ -165,6 +223,6 @@ const toggleSpinner = isLoading => {
 
 // Load default players on page load
 window.onload = () => {
-    toggleSpinner(true);
-    loadPlayers('c', 9); // Default search for 'c' with a limit of 6
+    toggleSpinner(true)
+    loadPlayers('ab', 9);
 };

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The SportsDB</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="container-lg">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SportsDB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semi-bold ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Sports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About_SportsDB</a>
+            </li>
+            
+          </ul>
+
+          <button class=" ms-5 btn btn-outline-success" type="submit">Login</button>
+
+        </div>
+      </div>
+    </nav>
+    <h1 class="head-title">Welcome to SportsDB!</h1>
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Player Search Section -->
+        <section>
+          <div class="mb-3 w-70 searchField">
+            <input id="search-field" type="email" class="form-control" placeholder="search your Player">
+            <div id="btn-search" class="btn btn-primary">Search</div>
+          </div>
+        </section>
+        
+        <!-- Display Search Result -->
+        <section>
+          <div id="Players-container " class="row row-cols-1 row-cols-md-3 g-4"></div>
+          <div id="no-found-message" class="mt-4 d-none">
+            <h3 class="text-warning">No item Found! Please try a new search</h3>
+          </div>
+          <div id="show-all" class="text-center d-none mb-4 mt-3">
+            <div id="btn-show-all" class="btn btn-primary ">Show All</div>
+          </div>
+        </section>
+  
+        <!-- Loader -->
+        <section id="loader" class="d-none">
+          <div style="height: 200px;" class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-success" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </section>
+      </div>
+  
+      <!-- Cart Section -->
+      <div class="col-md-4">
+        <section class="cartt text-center ">
+          <h3>My Team</h3>
+          <hr>
+          <p>Total Players in My Team : <span id="cart-count">0</span></p>
+          <hr>
+          <ul id="cart-list" class="list-group"></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal for player details -->
+<section>
+  <div class="modal fade " id="PlayerDetailModal" tabindex="-1" aria-labelledby="PlayerDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content mod">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="PlayerDetailModalLabel">Player Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="Player-details" class="modal-body">
+          <!-- Player details will be dynamically inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="modal-add-to-cart" class="btn btn-primary">Add to Team</button> <!-- Button to add player to cart from modal -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<footer>
+  <div class="footer-content">
+      <div class="footer-col">
+          <div class="footImage">
+              <h4 style="color: #f26725; padding-top: 15px;">The Sports Info</h4>
+          </div>
+          <div>
+              
+          <p style="padding: 15px 0px;">Consectetur adipiscing elttid do eiuid tempor incididunt ut labereore maeet dolore magna aliqua. Qweeuis ium suspen edisse ultrices.</p>
+          <h4 style="color: #f26725;padding-bottom: 10px;">Get matches Notifications</h4>
+          <input class="footinput" type="email" placeholder="Enter Your Email Here...">
+          </div>
+      </div>
+      <div class="footer-col">
+          <h3>Learn More</h3>
+          
+          
+          <ul>
+              <li>Our Customer</li>
+              <li>Take a Tour</li>
+              <li>Pricing Table</li>
+              <li>More Features</li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h3>Social Medias</h3>
+          
+          <ul>
+              <li>Our Customer</li>
+              <li>Take a Tour</li>
+              <li>Pricing Table</li>
+              <li>More Features</li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h3>Learn More</h3>
+          
+          <ul>
+              <li>Our Customer</li>
+              <li>Take a Tour</li>
+              <li>Pricing Table</li>
+              <li>More Features</li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h3>Office Address</h3>
+          
+          <div class="addr">
+              <div class="address">
+                  <div>
+                      <p style="color: #f26725;">Office <br>Address :</p>
+                  </div>
+                  <div class="addditails">
+                      <p>512/B Lloyd Ladner Rd,<br> Christian, MS, 39571</p>
+                  </div>
+              </div>
+              <div class="address">
+                  <div>
+                      <p style="color: #f26725;">Office <br>Address :</p>
+                  </div>
+                  <div class="addditails">
+                      <p>512/B Lloyd Ladner Rd,<br> Christian, MS, 39571</p>
+                  </div>
+              </div>
+              <div class="address">
+                  <div>
+                      <p style="color: #f26725;">Office <br>Address :</p>
+                  </div>
+                  <div class="addditails">
+                      <p>512/B Lloyd Ladner Rd,<br> Christian, MS, 39571</p>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</footer> 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
