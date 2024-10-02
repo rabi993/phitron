@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # from .views import contact
 # from .views import home
 from . import views
@@ -12,5 +12,6 @@ urlpatterns = [
     # path('contact/', contact),
     # path('home/', views.home),
     path('', views.home),
+    path('first_app/', include("first_app.urls")),
     path('contact/', views.contact)
 ]
