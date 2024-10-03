@@ -35,3 +35,17 @@ def index(request):
     "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
   }]
     return render(request, 'index.html', {'data' : data})
+
+
+# def about(request, id):
+#     return render(request, 'index.html', {'id': id})
+
+
+
+
+# http://127.0.0.1:8000/first_app/about/?page=1&rahim=19&name=rahim
+def about(request):
+    print(request.GET)
+    # return render(request, 'index.html', {'id': id})
+
+    return render(request, 'index.html', {'id': request.GET})

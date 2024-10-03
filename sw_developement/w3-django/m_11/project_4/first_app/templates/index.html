@@ -23,10 +23,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                {% comment %} <a class="nav-link" href="{% url  'about' id=1  %}">About</a> {% endcomment %}
+                <a class="nav-link" href="{% url  'about'   %}">About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,6 +72,9 @@
           
         </tbody>
       </table>
+      {% comment %} http://127.0.0.1:8000/first_app/about/?page=1&rahim=19&name=rahim {% endcomment %}
+    <h1> {{id.roll}}</h1>
+    <h1> {{id.name}}</h1>
 
     <h1> This is inside first app page</h1>
     
