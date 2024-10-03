@@ -14,6 +14,38 @@
     <h2>Author: {{author}}</h2>
     <h2>Age: {{age}}</h2>
     <h2> {{list}}</h2>
+
+    {% comment %} conditional statement {% endcomment %}
+
+    {% if age >= 20 %}
+        <h4> You will get driving license</h4>
+    {% elif age >= 10 and age <= 19 %}
+        <h4> You will not get driving license</h4>
+    {% else %}
+        <h4> You are a child</h4>
+    {% endif  %}
+
+
+    {{lst}}
+    <h1>{{ lst |  join:" - "}}</h1>
     
+
+
+    <h1>{{ birthday |  date:"D d M Y"}}</h1>
+    {% comment %} <h1>{{ val |  default:"an emty string"}}</h1> {% endcomment %}
+    <h1>{{"Python is Fun" | cut:" "}} </h1>
+    
+    <br>
+    <h1>{{val | length}} </h1>
+    
+    <h1>{{'Happy coding fryhrt ch' | truncatechars:10}} </h1>
+    <h1>{{"You can build web apps with python and Django" | truncatewords:7}} </h1>
+    {% comment %} for loop {% endcomment %}
+    {% for i in courses %}
+    <h4>{{i.id}}   {{i.name}}   {{i.fee}}</h4>
+    {% endfor %}
+
+    
+
 </body>
 </html>
