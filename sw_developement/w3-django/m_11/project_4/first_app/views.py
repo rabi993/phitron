@@ -34,7 +34,61 @@ def index(request):
     "title": "nesciunt quas odio",
     "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
   }]
-    return render(request, 'index.html', {'data' : data})
+    
+    meals = [
+        {
+            "strMeal": "BeaverTails",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/ryppsv1511815505.jpg",
+            "idMeal": "52928"
+        },
+        {
+            "strMeal": "Breakfast Potatoes",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/1550441882.jpg",
+            "idMeal": "52965"
+        },
+        {
+            "strMeal": "Canadian Butter Tarts",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/wpputp1511812960.jpg",
+            "idMeal": "52923"
+        },
+        {
+            "strMeal": "Montreal Smoked Meat",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/uttupv1511815050.jpg",
+            "idMeal": "52927"
+        },
+        {
+            "strMeal": "Nanaimo Bars",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/vwuprt1511813703.jpg",
+            "idMeal": "52924"
+        },
+        {
+            "strMeal": "Pate Chinois",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/yyrrxr1511816289.jpg",
+            "idMeal": "52930"
+        },
+        {
+            "strMeal": "Pouding chomeur",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/yqqqwu1511816912.jpg",
+            "idMeal": "52932"
+        },
+        {
+            "strMeal": "Poutine",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/uuyrrx1487327597.jpg",
+            "idMeal": "52804"
+        },
+        {
+            "strMeal": "Rappie Pie",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/ruwpww1511817242.jpg",
+            "idMeal": "52933"
+        },
+        {
+            "strMeal": "Split Pea Soup",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg",
+            "idMeal": "52925"
+        }
+    ]
+
+    return render(request, 'index.html', {'data' : data},{'meals' : meals} )
 
 
 # def about(request, id):
@@ -45,7 +99,7 @@ def index(request):
 
 # http://127.0.0.1:8000/first_app/about/?page=1&rahim=19&name=rahim
 def about(request):
-    print(request.GET)
+    # print(request.GET)
     # return render(request, 'index.html', {'id': id})
 
     return render(request, 'index.html', {'id': request.GET})

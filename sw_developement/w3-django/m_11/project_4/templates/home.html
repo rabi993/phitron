@@ -8,6 +8,23 @@
 
 {% comment %} <h1><a href="/">Home</a></h1> {% endcomment %}
 <h1> This is Home page</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in meals %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{i.strMealThumb}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{i.strMeal}}</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+    
+  </div>
+
 <img src ="static/ban.png" alt = "bird image 1" />
 {% comment %} <img src ="{% static 'ban.png' %}"  /> {% endcomment %}
 
