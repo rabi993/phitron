@@ -2,61 +2,53 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-{{block.super}}
+{{ block.super }}
 
-<h1> {{id.roll}}</h1>
-    <h1> {{id.name}}</h1>
+<h1>{{ id.roll }}</h1>
+<h1>{{ id.name }}</h1>
 
-    <h1> This is inside first app page</h1>
+<h1> This is inside first app page</h1>
 
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      {% for i in meals %}
-        <div class="col">
-          <div class="card h-100">
-            <img src="{{i.strMealThumb}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{i.strMeal}}</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for i in meals %}
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{ i.strMealThumb }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.strMeal }}</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
-      {% endfor %}
-      
-      
+      </div>
     </div>
+  {% endfor %}
+</div>
+
+<h1> This is inside first app page</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User ID</th>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+      <tr>
+        <th scope="row">{{ i.userId }}</th>
+        <td>{{ i.id }}</td>
+        <td>{{ i.title }}</td>
+        <td>{{ i.body }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 
-    <h1> This is inside first app page</h1>
-
-             
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">User ID</th>
-            <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Body</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for i in data %}
-                <tr>
-                    <th scope="row">{{i.userId}}</th>
-                    <td>{{i.id}}</td>
-                    <td>{{i.title}}</td>
-                    <td>{{i.body}}</td>
-                </tr>
-            {% endfor %}
-          
-        </tbody>
-      </table>
-      {% comment %} http://127.0.0.1:8000/first_app/about/?page=1&rahim=19&name=rahim {% endcomment %}
-    
-    
-    <img src="{% static 'images/b2.jpg' %}"  />
-
+{% comment %} http://127.0.0.1:8000/first_app/about/?page=1&rahim=19&name=rahim  {% endcomment %}
+<img src="{% static 'images/b2.jpg' %}" />
 
 {% endblock %}
