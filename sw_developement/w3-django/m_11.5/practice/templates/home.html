@@ -1,0 +1,15 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+{{block.super}}
+
+
+{% comment %} <h1><a href="/">Home</a></h1> {% endcomment %}
+<h1> This is Home page</h1>
+
+<img src ="static/ban.png" alt = "bird image 1" />
+{% comment %} <img src ="{% static 'ban.png' %}"  /> {% endcomment %}
+
+{% endblock %}
