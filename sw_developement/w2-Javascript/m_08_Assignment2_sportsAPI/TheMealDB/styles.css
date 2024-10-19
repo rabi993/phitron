@@ -1,0 +1,146 @@
+.head-title { 
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.searchField{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.cartt{
+    border: 2px solid rgb(224, 223, 223);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 55px;
+    
+}
+.cartt p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.cartt h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+.cardImg{
+    border: 5px solid gainsboro;
+    border-radius: 50%;
+    
+}
+.cardImg1{
+    border: 5px solid gainsboro;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    
+}
+.mod{
+    width: 300px;
+    position: ;
+}
+.card{
+    
+}
+.pm p{
+    margin-bottom: 0px;
+}
+.icon{
+    width: 20px;
+    border-radius: 3px;
+}
+.icdiv{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+.footer-content{
+    display: flex;
+    justify-content:space-evenly;
+    gap: 20px;
+    background-color: #333;
+    color: white;
+    padding: 50px 10%;
+}
+
+.footer-col {
+    width: 30%;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col p {
+    color: #bbb;
+}
+
+.footinput[type="email"] {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.address{
+    display: flex;
+    justify-content:left;
+    margin-left: -60px;
+    margin-bottom: 15px;
+}
+
+
+.addditails{
+    margin-left: 50px;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+    
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 25%;
+        
+        
+    }
+    .address{
+        display: flex;
+        justify-content:center;
+        margin-bottom: 15px;
+    }
+    .half-width{
+        width: 100%;
+        
+        margin-bottom: 15px;
+        
+    }
+    .addditails{
+        margin-right: 50px;
+    }
+    .footer-col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    
+    
+}
