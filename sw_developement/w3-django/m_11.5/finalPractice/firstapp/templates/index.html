@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{{ block.super }}
+
+
+
+<div class="container">
+    <h1 class="text-center"> This is inside first app home page</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for i in meals %}
+        <div class="col">
+          <div class="card h-100">
+            <img src="{{ i.strMealThumb }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.strMeal }}</h5>
+              
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h1 class="text-center"> This is inside first app  page</h1>
+</div>
+
+
+{% endblock %}
