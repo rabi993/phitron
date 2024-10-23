@@ -7,4 +7,5 @@ urlpatterns = [
     path('about/ttt/', views.about, name='about'),
     path('form/html_form/', views.submit_form, name='submit_form'),
     path('submit_show/', views.submit_show, name='submit_show'),
+    path('django_form/', views.django_form, name='django_form'),
 ]
