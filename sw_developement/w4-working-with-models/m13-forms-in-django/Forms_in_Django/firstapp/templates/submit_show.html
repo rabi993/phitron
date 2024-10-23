@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{{ block.super }}
+
+
+
+<div class="container">
+    <h1 class="text-center pb-3"> This is inside first app Submit_show  page</h1>
+
+    <br>
+
+    <h3 class="text-center "> Name: {{name}}</h3>
+    <h3 class="text-center "> Email: {{email}}</h3>
+    <h3 class="text-center "> rating: {{select}}</h3>
+
+</div>
+
+
+{% endblock %}
