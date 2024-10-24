@@ -55,7 +55,22 @@ class studentData(forms.Form):
     email = forms.CharField(widget= forms.EmailInput, validators=[validators.EmailValidator(message="Enter a valid email")])
     age = forms.IntegerField(validators=[validators.MaxValueValidator(34,message='age must be 34'), validators.MinValueValidator(24,message='age at least 24')])
     file = forms.FileField(validators=[validators.FileExtensionValidator(allowed_extensions=['pdf','jpg','png'], message="file extention must be .pdf/.png/.jpg")])
-    # regex, url
+    
+
+class passwordValidationProject(forms.Form):
+    name = forms.CharField(widget=forms.TextInput)
+    password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean(self):
+        clean_data = super().clean()
+        val_pass = self.cleaned_data['password']
+        val_conpass = self.cleaned_data['confirm_password']
+        val_name = self.cleaned_data['name']
+        if val_conpass != val_pass:
+            raise forms.ValidationError("password doesn't match")
+        if len(val_name)<15:
+            raise forms.ValidationError('Name must be at least 15 characters')
 
 
     

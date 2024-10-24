@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from . forms import contactForm, studentData
+from . forms import contactForm, studentData, passwordValidationProject
 # Create your views here.
 def index(request):
     
@@ -243,6 +243,18 @@ def studentForm(request):
             print(form.cleaned_data)
     else:
         form = studentData()
+
+    return render(request, 'django_form.html',{'form': form})
+
+    
+def passwordValidation(request):
+    if request.method == 'POST':
+        form = passwordValidationProject(request.POST)
+        if form.is_valid():
+            
+            print(form.cleaned_data)
+    else:
+        form = passwordValidationProject()
 
     return render(request, 'django_form.html',{'form': form})
 
