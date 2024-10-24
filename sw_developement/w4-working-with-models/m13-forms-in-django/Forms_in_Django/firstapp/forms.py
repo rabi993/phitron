@@ -1,5 +1,5 @@
 from django import forms 
-
+from django.core import validators
 
 # widgets == field to html input
 class contactForm(forms.Form):
@@ -20,32 +20,42 @@ class contactForm(forms.Form):
 
 
 
-class studentData(forms.Form):
-    name = forms.CharField(widget= forms.TextInput)
-    email = forms.CharField(widget= forms.EmailInput)
-    # def clean_name(self):
-    #     valname = self.cleaned_data['name']
-    #     if len(valname)<10:
-    #         raise forms.ValidationError("Enter a name with at least 10 characters")
-    #     return valname
-    # def clean_email(self):
-    #     valemail = self.cleaned_data['email']
-    #     if '.com' not in valemail:
-    #         raise forms.ValidationError("Your Email must contain with '.com'")
-    #     return valemail
+# class studentData(forms.Form):
+#     name = forms.CharField(widget= forms.TextInput)
+#     email = forms.CharField(widget= forms.EmailInput)
+#     # def clean_name(self):
+#     #     valname = self.cleaned_data['name']
+#     #     if len(valname)<10:
+#     #         raise forms.ValidationError("Enter a name with at least 10 characters")
+#     #     return valname
+#     # def clean_email(self):
+#     #     valemail = self.cleaned_data['email']
+#     #     if '.com' not in valemail:
+#     #         raise forms.ValidationError("Your Email must contain with '.com'")
+#     #     return valemail
     
-    def clean(self):
-        cleaned_data = super().clean()
-        valname = self.cleaned_data['name']
-        valemail = self.cleaned_data['email']
+#     def clean(self):
+#         cleaned_data = super().clean()
+#         valname = self.cleaned_data['name']
+#         valemail = self.cleaned_data['email']
 
-        if len(valname)<10:
-            raise forms.ValidationError("Enter a name with at least 10 characters")
-        if '.com' not in valemail:
-            raise forms.ValidationError("Your Email must contain with '.com'")
-        
-        
+#         if len(valname)<10:
+#             raise forms.ValidationError("Enter a name with at least 10 characters")
+#         if '.com' not in valemail:
+#             raise forms.ValidationError("Your Email must be contain with '.com'")
 
+
+def len_check(value):
+    if len(value) < 10:
+        raise forms.ValidationError('Emter a value at least 10 characters')
+        
+class studentData(forms.Form):
+    name = forms.CharField( validators=[validators.MinLengthValidator(10, message="Enter a name with at least 10 characters")])
+    text = forms.CharField(widget=forms.TextInput,validators=[len_check])
+    email = forms.CharField(widget= forms.EmailInput, validators=[validators.EmailValidator(message="Enter a valid email")])
+    age = forms.IntegerField(validators=[validators.MaxValueValidator(34,message='age must be 34'), validators.MinValueValidator(24,message='age at least 24')])
+    file = forms.FileField(validators=[validators.FileExtensionValidator(allowed_extensions=['pdf','jpg','png'], message="file extention must be .pdf/.png/.jpg")])
+    # regex, url
 
 
     
