@@ -11,3 +11,9 @@ class Student(models.Model):
     def __str__(self):
         # return self.name
         return f"Roll : {self.roll} | Name : {self.name}"
+    
+class studentModel(models.Model):
+    roll = models.IntegerField(primary_key=True) 
+    name = models.CharField(max_length=20)
+    father_name = models.TextField(max_length=30)
+    address = models.TextField()

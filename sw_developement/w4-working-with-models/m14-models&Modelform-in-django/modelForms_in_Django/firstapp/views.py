@@ -1,8 +1,8 @@
 
 from django.shortcuts import render, redirect
-from . forms import contactForm, studentData, passwordValidationProject, modelForms
+from . forms import contactForm, studentData, passwordValidationProject, modelForms, student_Form
 
-from . import models
+from . import models 
 # Create your views here.
 def index(request):
     
@@ -262,6 +262,7 @@ def passwordValidation(request):
 
     
 def model_Forms(request):
+    
     if request.method == 'POST':
         form = modelForms(request.POST)
         if form.is_valid():
@@ -272,7 +273,6 @@ def model_Forms(request):
 
     student = models.Student.objects.all()
     print(student)
-
     return render(request, 'modelForms.html',{'form': form, 'data' : student})
 
 def delete_student(request, roll):
@@ -291,3 +291,6 @@ def delete_student(request, roll):
     # return render(request, 'modelForms.html',{'form': form, 'data' : student})
     return redirect('modelForms')
     
+def model_Forms2(request):
+    std1 = student_Form()
+    return render(request, 'modelForms2.html',{'form2': std1})

@@ -1,5 +1,6 @@
 from django import forms 
 from django.core import validators
+from .models import studentModel
 
 # widgets == field to html input
 class contactForm(forms.Form):
@@ -91,3 +92,23 @@ class modelForms(forms.Form):
 
 
     
+class student_Form(forms.ModelForm):
+    class Meta:
+        model = studentModel
+        # fields = ['roll','name','address']
+        fields = '__all__'
+        # exclude = ['roll']
+        labels= {
+            'name': 'Student Name',
+            'roll': 'Student Roll'
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'btn-primary'}),
+            'roll': forms.PasswordInput()
+        }
+        help_texts ={
+            'name': "Write your Full name"
+        }
+        error_messages ={
+            'name': {'required': 'Your name is required'}
+        }
