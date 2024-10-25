@@ -12,3 +12,4 @@ urlpatterns = [
     path('django_form/passwordValidation/', views.passwordValidation, name='django_form'),
     path('django_form/modelForms/', views.model_Forms, name='modelForms'),
 ]
+  
