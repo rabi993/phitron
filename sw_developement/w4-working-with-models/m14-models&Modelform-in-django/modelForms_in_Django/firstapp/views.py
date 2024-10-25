@@ -291,6 +291,19 @@ def delete_student(request, roll):
     # return render(request, 'modelForms.html',{'form': form, 'data' : student})
     return redirect('modelForms')
     
+# def model_Forms2(request):
+#     std1 = student_Form()
+#     return render(request, 'modelForms2.html',{'form2': std1})
 def model_Forms2(request):
-    std1 = student_Form()
-    return render(request, 'modelForms2.html',{'form2': std1})
+    
+    if request.method =='POST':
+        form2 =student_Form(request.POST)
+        if form2.is_valid():
+            form2.save(commit=False)
+            form2.save()
+            print(form2.cleaned_data)
+
+    else:
+        form2= student_Form()
+    
+    return render(request, 'modelForms2.html',{'form2': form2})
