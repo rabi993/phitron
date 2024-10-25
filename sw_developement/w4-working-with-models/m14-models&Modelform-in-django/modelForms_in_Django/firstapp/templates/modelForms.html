@@ -34,6 +34,7 @@
                 <td>{{st.name}}</td>
                 <td>{{st.father_name}}</td>
                 <td>{{st.address}}</td>
+                <td><a class=" btn btn-danger " href ="{% url 'delete_student' st.roll%}"> Delete</a></td>
                 </tr>
                 {% endfor %}
               

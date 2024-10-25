@@ -1,5 +1,5 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . forms import contactForm, studentData, passwordValidationProject, modelForms
 
 from . import models
@@ -275,4 +275,19 @@ def model_Forms(request):
 
     return render(request, 'modelForms.html',{'form': form, 'data' : student})
 
+def delete_student(request, roll):
+    std = models.Student.objects.get(pk = roll).delete()
+    print(std)
+    # student = models.Student.objects.all()
+    # # print(student)
+    # if request.method == 'POST':
+    #     form = modelForms(request.POST)
+    #     if form.is_valid():
+            
+    #         print(form.cleaned_data)
+    # else:
+    #     form = modelForms()
+
+    # return render(request, 'modelForms.html',{'form': form, 'data' : student})
+    return redirect('modelForms')
     
