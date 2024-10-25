@@ -1,6 +1,8 @@
 
 from django.shortcuts import render
 from . forms import contactForm, studentData, passwordValidationProject, modelForms
+
+from . import models
 # Create your views here.
 def index(request):
     
@@ -268,6 +270,9 @@ def model_Forms(request):
     else:
         form = modelForms()
 
-    return render(request, 'modelForms.html',{'form': form})
+    student = models.Student.objects.all()
+    print(student)
+
+    return render(request, 'modelForms.html',{'form': form, 'data' : student})
 
     
