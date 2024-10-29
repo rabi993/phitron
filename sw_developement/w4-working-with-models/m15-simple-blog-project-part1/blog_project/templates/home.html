@@ -17,10 +17,11 @@
                     <p >Author: {{post.author.name}}</p>
                     <p >Category: 
                         {% for cat in post.category.all %}
-                        <button class="btn btn-primary m-2">{{cat.name}}</button>
+                        <button class="btn btn-success btn-sm m-2">{{cat.name}}</button>
                         {% endfor %}
                     </p>
-                    <a href="#" class="btn btn-danger">Go somewhere</a>
+                    <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Detete</a>
                 </div>
             </div>
         </div>
