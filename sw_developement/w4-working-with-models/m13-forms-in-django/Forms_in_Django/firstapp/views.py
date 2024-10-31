@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from . forms import contactForm, studentData, passwordValidationProject
+from . forms import contactForm, studentData, passwordValidationProject, PracticeForm, MyForm
 # Create your views here.
 def index(request):
     
@@ -258,4 +258,41 @@ def passwordValidation(request):
 
     return render(request, 'django_form.html',{'form': form})
 
+
+def practiceForm(request):
+    if request.method == 'POST':
+        form = PracticeForm(request.POST)
+        if form.is_valid():
+            
+            print(form.cleaned_data)
+            # subject = "Contact" 
+		    # body = {
+			# 'first_name': form.cleaned_data['first_name'], 
+			# 'last_name': form.cleaned_data['last_name'], 
+			# 'email': form.cleaned_data['email_address'], 
+			# 'message':form.cleaned_data['message'], 
+			# }
+			# message = "\n".join(body.values())
+
+			# try:
+			# 	send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+			# except BadHeaderError:
+			# 	return HttpResponse('Invalid header found.')
+			# return redirect ("main:homepage")
+    else:
+        form = PracticeForm()
+
+    return render(request, 'practice_form.html',{'form': form})
+
+def model_Form(request):
+    if request.method == 'POST':
+        form = MyForm(request.POST)
+        if form.is_valid():
+            
+            print(form.cleaned_data)
+            
+    else:
+        form = MyForm()
+
+    return render(request, 'model_form.html',{'form': form})
     

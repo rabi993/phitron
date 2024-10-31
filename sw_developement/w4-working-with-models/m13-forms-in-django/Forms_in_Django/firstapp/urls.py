@@ -10,4 +10,7 @@ urlpatterns = [
     # path('django_form/', views.django_form, name='django_form'),
     # path('django_form/studentForm/', views.studentForm, name='django_form'),
     path('django_form/passwordValidation/', views.passwordValidation, name='django_form'),
+    path('practice_form/', views.practiceForm, name='practice_form'),
+    path('model_form/', views.model_Form, name='model_form'),
 ]
+
