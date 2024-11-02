@@ -2,19 +2,30 @@
 
 {% block content %}
 {{block.super}}
+<style>
+    .success{
+      color: green,
+    }
+  
+  </style>
+{% if messages %}
+{% for m in messages %}
+<small {% if m.tags %} class="{{m.tags}}"{% endif %} >{{m}}</small>
+{% endfor %}
+{% endif %}
+<h6 class="text-center"> This is home page</h6>
 
-{%load crispy_forms_tags %}
-    <h6 class="text-center"> This is home page</h6>
+{% load crispy_forms_tags %}
     <form method="post" style="width:50%; margin:auto" novalidate>
-         {% csrf_token %}
+        {% csrf_token %}
         {% comment %} {{form | crispy }} {% endcomment %}
         {% for fm in form %}
-        {{fm.label_tag}}
-        {{fm}}
+        {{fm.label_tag}}<br/>
+        {{fm}}<br/>
         {{fm.errors | striptags }}
-
+        <br/>
         {% endfor %}
-
+        <br/>
         <button class="btn btn-primary" type="submit">Submit</button>
 
      
