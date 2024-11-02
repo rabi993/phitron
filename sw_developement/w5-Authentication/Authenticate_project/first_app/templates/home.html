@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{block.super}}
+
+{%load crispy_forms_tags %}
+    <h6 class="text-center"> This is home page</h6>
+    <form method="post" style="width:50%; margin:auto" novalidate>
+         {% csrf_token %}
+        {% comment %} {{form | crispy }} {% endcomment %}
+        {% for fm in form %}
+        {{fm.label_tag}}
+        {{fm}}
+        {{fm.errors | striptags }}
+
+        {% endfor %}
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+     
+       
+    </form>
+
+     
+
+{% endblock %}
