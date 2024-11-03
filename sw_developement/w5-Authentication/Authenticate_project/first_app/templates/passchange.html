@@ -14,16 +14,17 @@
         {% endfor %}
         {% endif %}
 
-        <h2 class="text-center"> Password Change page</h2>
+        <h2 class="text-center"> Change Password page</h2>
         {% comment %} {{form | crispy }}  {% endcomment %}
         {% for fm in form %}
         {{fm.label_tag}}<br/>
-        {{fm}}<br/>
-        {{fm.errors | striptags }}
-        <br/>
+        {{fm}}
+        <p class=" text-danger text-white p-3 ">{{fm.errors | striptags }}</p>
+        
+       
         {% endfor %} 
         <br/>
-        <button class="btn btn-warning" type="submit">Login</button>
+        <button class="btn btn-warning" type="submit">Change Password</button>
 
      
        
