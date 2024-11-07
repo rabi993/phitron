@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, update_session_auth_hash, l
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
+from categories.models import Category
+
 # Create your views here.
 # def add_author(request):
 #     if request.method =='POST':
@@ -48,9 +50,26 @@ def user_login(request):
         return render(request, 'register.html', {'form': form, 'type': 'Login'})
     
 @login_required
-def profile(request):
+def profile(request,category_slug = None):
     data = Post.objects.filter(author= request.user)
-    return render(request, 'profile.html', {'data': data})
+    if category_slug is not None:
+        category = Category.objects.get(slug= category_slug)
+        data = Post.objects.filter(category = category) 
+    categories = Category.objects.all()
+    return render(request, 'profile.html', {'data': data, 'category': categories})
+
+
+
+
+
+from categories.models import Category
+def home(request,category_slug = None):
+    data = Post.objects.all()
+    if category_slug is not None:
+        category = Category.objects.get(slug= category_slug)
+        data = Post.objects.filter(category = category) 
+    categories = Category.objects.all()
+    return render(request, 'home.html', {'data' : data, 'category': categories} )
 
 @login_required
 def edit_profile(request):

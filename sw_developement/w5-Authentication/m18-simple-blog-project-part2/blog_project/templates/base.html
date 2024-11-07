@@ -12,23 +12,23 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body>
-    <div class="">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<body style="background-color: #C6CCD6">
+    <div class=" ">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-4">
+            <div class="container-fluid w-75 m-auto">
+              <a class="navbar-brand me-5" href="/"><h1 >BLOG2</h1> </a>
+              {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
+              </button> {% endcomment %}
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}" >Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}" ><h3 >Home</h3></a>
                   </li>
                   
                   {% if request.user.is_authenticated %}
                     <li class="nav-item mx-3">
-                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'add_post'%}">Add_Post</a>
+                      <a class="nav-link active text-white " aria-current="page" href="{% url 'add_post'%}"><h3 >Add_Post</h3></a>
                     </li>
                   {% endif %}
                   
@@ -40,17 +40,17 @@
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item mx-3">
-                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'profile'%}">Profile</a>
+                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'profile'%}"><h3 >Profile</h3></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'user_logout' %}">Logout</a>
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'user_logout' %}"><h3 >Logout</h3></a>
                     </li>
                     {% else %}
                     <li class="nav-item mx-3">
-                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'register'%}">Register</a>
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'register'%}"><h3 >Register</h3></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active text-white btn btn-primary" aria-current="page" href="{% url 'user_login'%}">Login</a>
+                      <a class="nav-link active text-white btn btn-primary" aria-current="page" href="{% url 'user_login'%}"><h3 >Login</h3></a>
                     </li>
                     {% endif %}
 
@@ -79,11 +79,14 @@
           {% endfor %}
           
     
-          {% block content  %}
+          
+          
+          <div >
+            {% block content  %}
+            <h1 class="text-center">welcome!</h1> 
+            {% endblock  %}
+          </div> 
     
-          <h1 class="text-center">welcome!</h1> 
-    
-          {% endblock  %}
     
     </div>
 
