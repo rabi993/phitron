@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from . import forms
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
+from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # def add_author(request):
@@ -38,10 +39,36 @@ def user_login(request):
             if user is not None:
                 messages.success(request, 'Account Logged in Successfully')
                 login(request, user)
-                return redirect('user_login')
+                return redirect('profile')
             else:
                 messages.warning(request, 'Login info incorrect')
                 return redirect('register')
     else:
         form = AuthenticationForm()
         return render(request, 'register.html', {'form': form, 'type': 'Login'})
+    
+@login_required
+def profile(request):
+    if request.method =='POST':
+        profile_form = forms.ChangeUserForm(request.POST, instance= request.user)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Profile updated Successfully')
+            return redirect('profile')
+    else:
+        profile_form = forms.ChangeUserForm(instance= request.user)
+
+    return render(request, 'profile.html', {'form': profile_form})
+
+def pass_change(request):
+    if request.method =='POST':
+        form = PasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Password updated Successfully')
+            update_session_auth_hash(request, form.user)
+            return redirect('profile')
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+    return render(request, 'pass_change.html', {'form': form})
