@@ -3,12 +3,10 @@
 {% block content %}
 {{ block.super }}
 
-<form method='post' style="width: 50%; margin : auto">
-    <h1>Profile Page </h1>
-    <a class="btn btn-warning mb-5" href="{% url 'pass_change' %}">Change Your password </a>
-    {% csrf_token %}
-    {{form | crispy }}
-    <button class='btn btn-warning mb-5'>Edit</button>
-</form>
+
+<div>
+    <a class="btn btn-primary" href="{% url 'edit_profile' %}"> Eit Your Profile  </a>
+</div>
+
 
 {% endblock %}

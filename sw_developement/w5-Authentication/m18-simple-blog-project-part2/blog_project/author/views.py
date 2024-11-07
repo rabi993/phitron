@@ -49,6 +49,11 @@ def user_login(request):
     
 @login_required
 def profile(request):
+
+    return render(request, 'profile.html')
+
+@login_required
+def edit_profile(request):
     if request.method =='POST':
         profile_form = forms.ChangeUserForm(request.POST, instance= request.user)
         if profile_form.is_valid():
@@ -58,7 +63,7 @@ def profile(request):
     else:
         profile_form = forms.ChangeUserForm(instance= request.user)
 
-    return render(request, 'profile.html', {'form': profile_form})
+    return render(request, 'update_profile.html', {'form': profile_form})
 
 def pass_change(request):
     if request.method =='POST':
