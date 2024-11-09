@@ -126,3 +126,8 @@ def pass_change(request):
 def user_logout(request):
     logout(request)
     return redirect('user_login')
+
+class UserLogoutView(LogoutView):
+    template_name= 'register.html'
+    def get_success_url(self):
+        return  reverse_lazy('login')
