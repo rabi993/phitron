@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 from posts.models import Post
 from categories.models import Category
 
+
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
+
 # Create your views here.
 # def add_author(request):
 #     if request.method =='POST':
@@ -49,6 +53,28 @@ def user_login(request):
         form = AuthenticationForm()
         return render(request, 'register.html', {'form': form, 'type': 'Login'})
     
+
+# user login view of class based view
+class UserLoginView(LoginView):
+    template_name= 'register.html'
+    # success_url = reverse_lazy('profile')
+    def get_success_url(self):
+        return  reverse_lazy('profile')
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Logged in Successfull')
+        return super().form_valid(form)
+    def form_invalid(self, form):
+        messages.success(self.request, 'Logged in information incorrect')
+        return super().form_invalid(form)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['type']= 'login'
+        return context
+
+
+
+
 @login_required
 def profile(request,category_slug = None):
     data = Post.objects.filter(author= request.user)
