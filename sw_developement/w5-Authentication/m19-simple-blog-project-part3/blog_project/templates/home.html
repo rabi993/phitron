@@ -37,20 +37,24 @@
 
             {% for post in data %}
                 <div  class="col-sm-3 ">
+                    
                     <div  class=" ">
-                        <div class=" card card-body bg-info mx-1 mb-3 border rounded-4">
-                            <img src="{{post.image.url}}" class="card-img-top rounded-2 mb-2" alt="...">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <p class="card-text">{{post.content}}</p>
-                            <p >Author: {{post.author.first_name}} {{post.author.last_name}}</p>
-                            <p >Category: 
-                                {% for cat in post.category.all %}
-                                <button class="btn btn-primary btn-sm m-1">{{cat.name}}</button>
-                                {% endfor %}
-                            </p>
-                            
+                            <div class=" card card-body bg-info mx-1 mb-3 border rounded-4">
+                                <a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">
+                                <img src="{{post.image.url}}" class="card-img-top rounded-2 mb-2" alt="...">
+                                </a>
+                                <h5 class="card-title"><a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">{{post.title}}</a></h5>
+                                <p class="card-text">{{post.content |truncatewords:10}}</p>
+                                <p >Author: {{post.author.first_name}} {{post.author.last_name}}</p>
+                                <p >Category: 
+                                    {% for cat in post.category.all %}
+                                    <button class="btn btn-primary btn-sm m-1">{{cat.name}}</button>
+                                    {% endfor %}
+                                </p>
+                                
+                            </div>
                         </div>
-                    </div>
+                    
                 </div>
             {% endfor %}
           </div>
