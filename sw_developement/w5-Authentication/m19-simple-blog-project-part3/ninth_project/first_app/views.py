@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from datetime import datetime, timedelta
+from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
@@ -21,22 +22,27 @@ def delete_cookie(request):
 
 
 def set_session(request):
-    data ={
-        'name': 'Rahim',
-        'age': 23,
-         'language' : 'Bangla'
+    # data ={
+    #     'name': 'Rahim',
+    #     'age': 23,
+    #      'language' : 'Bangla'
 
-    }
-    print(request.session.get_session_cookie_age())
-    print(request.session.get_expiry_date())
-    request.session.update(data)
+    # }
+    # print(request.session.get_session_cookie_age())
+    # print(request.session.get_expiry_date())
+    # request.session.update(data)
+    request.session['name']= 'Karim'
     return render(request,'home.html')
 
 def get_session(request):
-    name = request.session.get('name')
-    age = request.session.get('age')
-    print(name)
-    return render(request,'get_session.html', {'name': name,'age': age})
+    if 'name' in request.session:
+        name = request.session.get('name','Guest')
+        # age = request.session.get('age')
+        # print(name)
+        request.session.modified = True
+        return render(request,'get_session.html', {'name': name})
+    else:
+        return HttpResponse("Your session has been expired . Login again")
 
 def delete_session(request):
     # del request.session['name']
