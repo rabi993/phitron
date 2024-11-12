@@ -1,0 +1,103 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body style="background-color: #C6CCD6">
+    <div class=" ">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-4">
+            <div class="container-fluid w-75 m-auto">
+              <a class="navbar-brand me-5" href="/"><h1 >BLOG3</h1> </a>
+              {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button> {% endcomment %}
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}" ><h3 >Home</h3></a>
+                  </li>
+                  
+                  {% if request.user.is_authenticated %}
+                    <li class="nav-item mx-3">
+                      <a class="nav-link active text-white " aria-current="page" href="{% url 'add_post'%}"><h3 >Add_Post</h3></a>
+                    </li>
+                    {% comment %} <li class="nav-item mx-3">
+                      <a class="nav-link active text-white " aria-current="page" href="{% url 'add_category'%}"><h3 >Add_Category</h3></a>
+                    </li> {% endcomment %}
+                  {% endif %}
+                  
+                  
+                  
+                  
+                </ul>
+                <div class="d-flex" >
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item mx-3">
+                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'profile'%}"><h3 >Profile</h3></a>
+                    </li>
+                    <li class="nav-item">
+                      
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'user_logout' %}"><h3 >Logout</h3></a>
+                      
+                    </li>
+                    {% else %}
+                    <li class="nav-item mx-3">
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'register'%}"><h3 >Register</h3></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active text-white btn btn-primary" aria-current="page" href="{% url 'user_login'%}"><h3 >Login</h3></a>
+                    </li>
+                    {% endif %}
+
+                  </ul>
+                  
+                </div>
+              </div>
+            </div>
+          </nav>
+          {% for i in messages %}
+            {% comment %} <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">message</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+              <h3 class="text-{{i.tags}}">{{i}}</h3>
+              
+              </div>
+            </div> {% endcomment %}
+            <div class="" >
+              <h3 class="text-{{i.tags}}">{{i}}</h3>
+            </div>
+
+          {% endfor %}
+          
+    
+          
+          
+          <div >
+            {% block content  %}
+            {% comment %} <h1 class="text-center">welcome!</h1>  {% endcomment %}
+            {% endblock  %}
+          </div> 
+    
+    
+    </div>
+
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
