@@ -3,13 +3,20 @@
 {% block content %}
 {{ block.super }}
 
+<div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
+    <div class="col-12 text-center">
+        <h1 class="text-white px-3">Update Your Profile </h1>
+        <a class="btn btn-warning mb-5" href="{% url 'pass_change' %}">Change Your password </a>
+    <div/>
+    <div style="background-color: gray" class=" col-12w-75 m-auto border border-5 rounded-4 border-dark p-5">
+        <form method='post' style="width: 25%; margin : auto">
+            
+            {% csrf_token %}
+            {{form | crispy }}
+            <button class='btn btn-warning mb-5 py-3 px-5'><h5>Edit</h5></button>
+        </form>
 
-<form method='post' style="width: 50%; margin : auto">
-    <h1>Update Your Profile </h1>
-    <a class="btn btn-warning mb-5" href="{% url 'pass_change' %}">Change Your password </a>
-    {% csrf_token %}
-    {{form | crispy }}
-    <button class='btn btn-warning mb-5'>Edit</button>
-</form>
+    <div/>
+<div/>
 
 {% endblock %}

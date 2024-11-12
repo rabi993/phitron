@@ -5,11 +5,11 @@
 {{ block.super }}
 
 
-<div class="w-50 m-auto text-center pb-5">
-    <a class="btn btn-info " href="{% url 'edit_profile' %}"><h1 >Clic & Edit Your Profile</h1>   </a>
+<div class="w-50 m-auto text-center pb-5 ">
+    <a class="btn btn-info mt-3" href="{% url 'edit_profile' %}"><h1 >Click & Edit Your Profile</h1>   </a>
 </div>
 
-<div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
+{% comment %} <div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
     <div style="background-color: gray" class="col-2 border border-5 rounded-4 border-dark p-5">
         <h3 class="text-center">Clic for Category wise Filter </h3>
         <hr/ class="w-80 bg-black m-auto ">
@@ -56,26 +56,12 @@
           </div>
     </div>
 
-</div> 
+</div>  {% endcomment %}
 
 
-<div style="background-color: black" class="d-flex flex-wrap px-5 mt-3 pt-3 border border-5 rounded-4 border-dark p-2">
-    <div style="background-color: gray" class="col-2 border border-5 rounded-4 border-dark p-5">
-        <h3 class="text-center">Clic for Category wise Filter </h3>
-        <hr/ class="w-80 bg-black m-auto ">
-    {% for cat in category %}
-        <div class="text-center">
-            
-              
-              <a class="btn btn-info my-1" href="{% url 'category_wise_post2' cat.slug %}">{{cat.name}}</a>
-            
-          </div>
-        
-        
-    {% endfor %}
-          
-    </div>
-<div  style="background-color: gray" class="col-10 border border-5 rounded-4 border-dark ">
+<div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
+    
+<div  style="background-color: gray" class="col-12 border border-5 rounded-4 border-dark ">
     <h1 class="text-center">{{ user.first_name }} {{ user.last_name }}'s Cart</h1>
     <h3 class="text-center"> {{cart.items.all | length}} Results Found</h3>
     <hr/ class="w-50 bg-black m-auto ">
@@ -95,8 +81,8 @@
                             <h5 >Brand Name:  {{item.post.category.name}}</h5>
                             <h3>Quantity: {{ item.quantity }}</h3>
                             <a href="{% url 'detail_post' item.post.id %}"class="text-decoration-none btn btn-dark w-75  m-auto"> View Details</a> <br/>
-                            <a href="" class="btn btn-warning mt-2">Edit</a>
-                            <a href="" class="btn btn-danger mt-2">Detete</a>
+                            {% comment %} <a href="" class="btn btn-warning mt-2">Edit</a>
+                            <a href="" class="btn btn-danger mt-2">Detete</a> {% endcomment %}
                             
                         </div>
                         
@@ -115,10 +101,11 @@
 <br/>
 <br/>
 <br/>
+{% comment %} 
   <h1>{{ user.username }}'s Cart</h1>
 
-  {% comment %} <h2>Your Cart</h2> {% endcomment %}
-  {% if cart and cart.items.all %}
+  <h2>Your Cart</h2> 
+   {% if cart and cart.items.all %}
       <ul>
           {% for item in cart.items.all %}
               <li>{{ item.post.title }} - Quantity: {{ item.quantity }}</li>
@@ -126,6 +113,6 @@
       </ul>
   {% else %}
       <p>Your cart is empty.</p>
-  {% endif %}
+  {% endif %} {% endcomment %}
 
 {% endblock %}
