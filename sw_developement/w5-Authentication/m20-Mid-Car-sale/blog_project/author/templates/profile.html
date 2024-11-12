@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 {{ block.super }}
 
@@ -8,18 +9,15 @@
     <a class="btn btn-info " href="{% url 'edit_profile' %}"><h1 >Clic & Edit Your Profile</h1>   </a>
 </div>
 
-
 <div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
     <div style="background-color: gray" class="col-2 border border-5 rounded-4 border-dark p-5">
         <h3 class="text-center">Clic for Category wise Filter </h3>
         <hr/ class="w-80 bg-black m-auto ">
     {% for cat in category %}
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="{{cat.id}}">
-            <label class="form-check-label" for="{{cat.id}}">
-              
+        <div class=" text-center">
+           
               <a class="btn btn-info my-1" href="{% url 'category_wise_post2' cat.slug %}">{{cat.name}}</a>
-            </label>
+            
           </div>
         
         
@@ -35,10 +33,11 @@
                 <div  class="col-sm-3 ">
                     <div  class="card card-body bg-info mx-1 mb-3 border rounded-4 ">
                         <div class=" ">
-                            {% comment %} <a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">
-                                <img src="{{post.image.url}}" class="card-img-top rounded-2 mb-2" alt="...">
-                                </a> {% endcomment %}
-                            {% comment %} <img src="{{post.image.url}}" class="card-img-top rounded-2 mb-2" alt="..."> {% endcomment %}
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top rounded-2 mb-2" alt="Post Image">
+                            {% else %}
+                            <img src="{% static 'car.png' %}" class="card-img-top rounded-2 mb-2" alt="Default Image">
+                            {% endif %}
                             <h5 class="card-title">{{post.title}}</h5>
                             <p class="card-text">{{post.content}}</p>
                             <p >Author: {{post.author.first_name}} {{post.author.last_name}}</p>
@@ -57,31 +56,76 @@
           </div>
     </div>
 
-</div>
+</div> 
 
 
-{% comment %} <div class="d-flex flex-wrap justify-content-center  pt-5">
-
-    {% for post in data %}
-        <div class="col-sm-3 ">
-            <div class="card mx-1">
-                <div class="card-body">
-                    <h5 class="card-title">{{post.title}}</h5>
-                    <p class="card-text">{{post.content}}</p>
-                    <p >Author: {{post.author.first_name}} {{post.author.last_name}}</p>
-                    <p >Category: 
-                        {% for cat in post.category.all %}
-                        <button class="btn btn-success btn-sm m-2">{{cat.name}}</button>
-                        {% endfor %}
-                    </p>
-                    <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
-                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Detete</a>
+<div style="background-color: black" class="d-flex flex-wrap px-5 mt-3 pt-3 border border-5 rounded-4 border-dark p-2">
+    <div style="background-color: gray" class="col-2 border border-5 rounded-4 border-dark p-5">
+        <h3 class="text-center">Clic for Category wise Filter </h3>
+        <hr/ class="w-80 bg-black m-auto ">
+    {% for cat in category %}
+        <div class="text-center">
+            
+              
+              <a class="btn btn-info my-1" href="{% url 'category_wise_post2' cat.slug %}">{{cat.name}}</a>
+            
+          </div>
+        
+        
+    {% endfor %}
+          
+    </div>
+<div  style="background-color: gray" class="col-10 border border-5 rounded-4 border-dark ">
+    <h1 class="text-center">{{ user.first_name }} {{ user.last_name }}'s Cart</h1>
+    <h3 class="text-center"> {{cart.items.all | length}} Results Found</h3>
+    <hr/ class="w-50 bg-black m-auto ">
+    <div class="d-flex flex-wrap justify-content-center  pt-3">
+        {% if cart and cart.items.all %}
+            {% for item in cart.items.all %}
+            <div  class="col-sm-3 ">
+                <div  class="card card-body bg-info mx-1 mb-3 border rounded-4 ">
+                    <div class=" ">
+                        {% if item.post.image %}
+                        <img src="{{ item.post.image.url }}" class="card-img-top rounded-2 mb-2" alt="Post Image">
+                        {% else %}
+                        <img src="{% static 'car.png' %}" class="card-img-top rounded-2 mb-2" alt="Default Image">
+                        {% endif %}
+                        <div class="w-50 m-auto text-center">
+                            <h3>Model:  {{ item.post.title }} </h3>
+                            <h5 >Brand Name:  {{item.post.category.name}}</h5>
+                            <h3>Quantity: {{ item.quantity }}</h3>
+                            <a href="{% url 'detail_post' item.post.id %}"class="text-decoration-none btn btn-dark w-75  m-auto"> View Details</a> <br/>
+                            <a href="" class="btn btn-warning mt-2">Edit</a>
+                            <a href="" class="btn btn-danger mt-2">Detete</a>
+                            
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
-    
-  </div> {% endcomment %}
+            {% endfor %}
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+</div>
+</div>
 
+<br/>
+<br/>
+<br/>
+<br/>
+  <h1>{{ user.username }}'s Cart</h1>
+
+  {% comment %} <h2>Your Cart</h2> {% endcomment %}
+  {% if cart and cart.items.all %}
+      <ul>
+          {% for item in cart.items.all %}
+              <li>{{ item.post.title }} - Quantity: {{ item.quantity }}</li>
+          {% endfor %}
+      </ul>
+  {% else %}
+      <p>Your cart is empty.</p>
+  {% endif %}
 
 {% endblock %}

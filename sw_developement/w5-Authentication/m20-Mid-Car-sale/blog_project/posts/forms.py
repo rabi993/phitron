@@ -7,6 +7,7 @@ class PostForm(forms.ModelForm):
         model = Post
         # fields = '__all__'
         exclude =['author']
+        # fields = ['title', 'content', 'category', 'author', 'price', 'available', 'image']
     
 
 class CommentForm(forms.ModelForm):

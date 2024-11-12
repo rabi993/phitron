@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from . import forms
 from . import models
 from django.contrib.auth.decorators import login_required
-from .models import Post
+from .models import Post, Cart, CartItem
 
 
 from django.utils.decorators import method_decorator
@@ -108,4 +108,19 @@ def buy_now(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if post.Available > 0:
         post.decrease_available()
+        # Get or create a cart for the user
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        
+        # Check if item is already in the cart
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, post=post)
+        
+        if not created:
+            # If item already in cart, increment quantity
+            cart_item.quantity += 1
+            cart_item.save()
     return redirect('detail_post', pk=post.id)
+
+def delete_cart_item(request, post_id):
+    cart_item = get_object_or_404(CartItem, id=post_id, cart__user=request.user)
+    cart_item.delete()
+    return redirect('profile')

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, Se
 from django.contrib.auth import authenticate, login, update_session_auth_hash, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from posts.models import Post
+from posts.models import Post, Cart
 from categories.models import Category
 
 
@@ -82,7 +82,10 @@ def profile(request,category_slug = None):
         category = Category.objects.get(slug= category_slug)
         data = Post.objects.filter(author= request.user, category = category) 
     categories = Category.objects.all()
-    return render(request, 'profile.html', {'data': data, 'category': categories})
+    cart = Cart.objects.filter(user=request.user).first()
+    
+    
+    return render(request, 'profile.html', {'data': data, 'category': categories, 'cart': cart})
 
 
 

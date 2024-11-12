@@ -3,7 +3,7 @@
 {% block content %}
 {% comment %} {{ block.super }} {% endcomment %}
 
-<form method='post' style="width: 50%; margin : auto">
+<form method='post' style="width: 50%; margin : auto" enctype="multipart/form-data">
     <h1>Add Posts Page </h1>
     {% csrf_token %}
     {{form | crispy }}
