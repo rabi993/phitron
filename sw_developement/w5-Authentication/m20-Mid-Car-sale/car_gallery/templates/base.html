@@ -14,7 +14,7 @@
 </head>
 <body style="background-color: #C6CCD6">
     <div class=" ">
-        <nav  class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-4 sticky-top">
+        <nav  class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark py-2 sticky-top">
             <div class="container-fluid w-75 m-auto">
               <a class="navbar-brand me-5" href="/"><h1 >Car-Gallery</h1> </a>
               
@@ -22,7 +22,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   {% if request.user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}" ><h3 >Home</h3></a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}" ><h4 >Home</h4></a>
                   </li>
                   
                     {% comment %} {% if request.user.is_authenticated %}
@@ -42,19 +42,19 @@
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item mx-3">
-                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'profile'%}"><h3 >Profile</h3></a>
+                      <a class="nav-link active text-white btn btn-success" aria-current="page" href="{% url 'profile'%}"><h4 >Profile</h4></a>
                     </li>
                     <li class="nav-item">
                       
-                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'user_logout' %}"><h3 >Logout</h3></a>
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'user_logout' %}"><h4 >Logout</h4></a>
                       
                     </li>
                     {% else %}
                     <li class="nav-item mx-3">
-                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'register'%}"><h3 >Register</h3></a>
+                      <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{% url 'register'%}"><h4 >Register</h4></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active text-white btn btn-primary" aria-current="page" href="{% url 'user_login'%}"><h3 >Login</h3></a>
+                      <a class="nav-link active text-white btn btn-primary" aria-current="page" href="{% url 'user_login'%}"><h4 >Login</h4></a>
                     </li>
                     {% endif %}
 

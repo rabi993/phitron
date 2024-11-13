@@ -4,12 +4,12 @@
 {{block.super}}
 
 <div class="d-flex flex-wrap px-5 pb-2 align-items-center w-75 m-auto">
-    <div class="col-6">
+    <div class="col-5">
         <h1 class=""> Welcome to <b>Car Gallery</b></h1>
-        <h5 class=""> Car Gallery BD is one of the first and leading companies in the automobile business world of Bangladesh. It was established in 1991. It is importing and whole selling brand new, re-conditioned luxurious and Best quality cars, microbus, SUVs, and other cars. It is providing most brand new cars at a reasonable price and starts an unbreakable relationship with buyers.</h5>
+        <h6 class=""> Car Gallery BD is one of the first and leading companies in the automobile business world of Bangladesh. It was established in 1991. It is importing and whole selling brand new, re-conditioned luxurious and Best quality cars, microbus, SUVs, and other cars. It is providing most brand new cars at a reasonable price and starts an unbreakable relationship with buyers.</h6>
     </div>
-    <div class="col-6">
-        <img style="padding-left: 0px; width:1000px" class="mt-2 rounded-3" src="{% static 'car1.jpg' %}"/>
+    <div class="col-7">
+        <img style="padding-left: 0px; width:750px" class="mt-2 rounded-3" src="{% static 'car1.jpg' %}"/>
     </div>
 </div>
 
@@ -25,7 +25,7 @@
                 {% comment %} <input class="form-check-input" type="radio" name="brand" id="{{cat.id}}">
                 <label class="form-check-label" for="{{cat.id}}"> {% endcomment %}
                 
-                <a class="btn btn-info my-1 pt-2" href="{% url 'brand_wise_car' cat.slug %}"><h4>{{cat.name}}</h4></a>
+                <a class="btn btn-info my-1 pt-2" href="{% url 'brand_wise_car' cat.slug %}"><h5>{{cat.name}}</h5></a>
                 {% comment %} </label> {% endcomment %}
             </div>
         {% endfor %}
@@ -52,9 +52,9 @@
                                 </a>  
                                 <h5 class="card-title"><a href="{% url 'detail_car' car.id %}" class="text-decoration-none text-dark">{{car.title}}</a></h5>
                                 <p class="card-text">{{car.content |truncatewords:10}}</p>
-                                <h5 >Brand Name:  {{car.brand.name}}</h5> 
-                                <h5 >Model:  {{car.title}}</h5>
-                                <h5 >Price:  {{car.Price}} Taka</h5>
+                                <h6 >Brand Name:  {{car.brand.name}}</h6> 
+                                </h6 >Model:  {{car.title}}</>
+                                <h6 >Price:  {{car.Price}} Taka</h6>
                                 <a href="{% url 'detail_car' car.id %}"class="text-decoration-none btn btn-dark w-50 m-auto"> View Details</a> 
                                 
                             </div>

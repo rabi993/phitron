@@ -6,7 +6,7 @@
 
 
 <div class="w-50 m-auto text-center pb-5 ">
-    <a class="btn btn-info mt-3" href="{% url 'edit_profile' %}"><h1 >Click & Edit Your Profile</h1>   </a>
+    <a class="btn btn-info mt-3" href="{% url 'edit_profile' %}"><h3 >Click & Edit Your Profile</h3>   </a>
 </div>
 
 {% comment %} <div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
@@ -62,8 +62,8 @@
 <div style="background-color: black" class="d-flex flex-wrap px-5  pt-3 border border-5 rounded-4 border-dark p-2">
     
 <div  style="background-color: gray" class="col-12 border border-5 rounded-4 border-dark ">
-    <h1 class="text-center">{{ user.first_name }} {{ user.last_name }}'s Cart</h1>
-    <h3 class="text-center"> {{cart.items.all | length}} Results Found</h3>
+    <h3 class="text-center">{{ user.first_name }} {{ user.last_name }}'s Cart</h3>
+    <h4 class="text-center"> {{cart.items.all | length}} Results Found</h4>
     <hr/ class="w-50 bg-black m-auto ">
     <div class="d-flex flex-wrap justify-content-center  pt-3">
         {% if cart and cart.items.all %}
@@ -77,9 +77,9 @@
                         <img src="{% static 'car.png' %}" class="card-img-top rounded-2 mb-2" alt="Default Image">
                         {% endif %}
                         <div class="w-50 m-auto text-center">
-                            <h3>Model:  {{ item.car.title }} </h3>
-                            <h5 >Brand Name:  {{item.car.brand.name}}</h5>
-                            <h3>Quantity: {{ item.quantity }}</h3>
+                            <h4>Model:  {{ item.car.title }} </h4>
+                            <h6 >Brand Name:  {{item.car.brand.name}}</h6>
+                            <h6>Quantity: {{ item.quantity }}</h6>
                             <a href="{% url 'detail_car' item.car.id %}"class="text-decoration-none btn btn-dark w-75  m-auto"> View Details</a> <br/>
                             {% comment %} <a href="" class="btn btn-warning mt-2">Edit</a>
                             <a href="" class="btn btn-danger mt-2">Detete</a> {% endcomment %}
