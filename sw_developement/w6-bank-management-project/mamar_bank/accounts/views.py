@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views import View
 from django.shortcuts import redirect
+# import logging
 
 class UserRegistrationView(FormView):
     template_name = 'accounts/user_registration.html'
@@ -24,11 +25,17 @@ class UserLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy('home')
 
+
+# logger = logging.getLogger(__name__)
 class UserLogoutView(LogoutView):
+    # next_page = reverse_lazy('home')
     def get_success_url(self):
         if self.request.user.is_authenticated:
             logout(self.request)
         return reverse_lazy('home')
+    # def dispatch(self, request, *args, **kwargs):
+    #     logger.info("LogoutView accessed")
+    #     return super().dispatch(request, *args, **kwargs)
 
 
 class UserBankAccountUpdateView(View):
