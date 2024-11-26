@@ -3,7 +3,7 @@ from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Transaction
 from .forms import DepositForm,WithdrawForm, LoanRequestForm
-from .constants import DEPOSIT,WITHDRAWAL,LOAN, LOAN_PAID
+from .constants import DEPOSIT,WITHDRAWAL,LOAN, LOAN_PAID, SEND_MONEY, RECEIVED_MONEY
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -12,6 +12,12 @@ from datetime import datetime
 from django.db.models import Sum
 from django.views import View
 from django.urls import reverse_lazy
+from transactions.forms import (
+    DepositForm,
+    WithdrawForm,
+    LoanRequestForm,
+    TransferForm
+)
 
 from transactions.models import Transaction
 from accounts.models import UserBankAccount
@@ -192,3 +198,86 @@ class LoanListView(LoginRequiredMixin,ListView):
         print(queryset)
         return queryset
 
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
+from .forms import TransactionForm
+
+# class TransferView(FormView):
+#     template_name = 'transactions/transfer.html'
+#     form_class = TransferForm
+#     success_url = reverse_lazy('transfer')  # Replace 'success' with your success URL name
+
+#     def get_initial(self):
+#         initial = {'transaction_type': SEND_MONEY}
+#         return initial
+
+#     def form_valid(self, form):
+#         # Process the form data here (e.g., save to database)
+#         account_number = form.cleaned_data['account_number']
+#         amount = form.cleaned_data['amount']
+#         user_account = UserBankAccount.objects.filter(account_no=account_number).first()
+#         print(user_account)
+#         if amount > self.request.user.account.balance:
+#             messages.error(
+#             self.request,
+#             f'Transfer amount is greater than available balance'
+#             )
+#             return redirect('transfer')
+#         user_account.balance += amount
+#         self.request.user.account.balance -= amount
+#         messages.success(
+#             self.request,
+#             f'Transfer Done'
+#             )
+#         print(account_number, amount)
+#         # You can perform actions with account_number and amount here
+#         send_transaction_email(self.request.user, amount, "Transfer Message", "transactions/withdrawal_email.html")
+#         return super().form_valid(form)
+
+class TransferView(FormView):
+    template_name = 'transactions/transfer.html'
+    form_class = TransferForm
+    success_url = reverse_lazy('transfer')
+
+    def form_valid(self, form):
+        sender = self.request.user.account
+        account_number = form.cleaned_data['account_number']
+        amount = form.cleaned_data['amount']
+        
+        receiver = UserBankAccount.objects.filter(account_no=account_number).first()
+        if not receiver:
+            messages.error(self.request, 'Receiver account not found!')
+            return redirect('transfer')
+
+        if amount > sender.balance:
+            messages.error(self.request, 'Insufficient balance!')
+            return redirect('transfer')
+
+        # Update balances
+        sender.balance -= amount
+        receiver.balance += amount
+        sender.save(update_fields=['balance'])
+        receiver.save(update_fields=['balance'])
+
+        # Create transaction for sender
+        Transaction.objects.create(
+            account=sender,
+            amount=amount,
+            balance_after_transaction=sender.balance,
+            transaction_type=SEND_MONEY # SEND_MONEY
+        )
+
+        # Create transaction for receiver
+        Transaction.objects.create(
+            account=receiver,
+            amount=amount,
+            balance_after_transaction=receiver.balance,
+            transaction_type=RECEIVED_MONEY  # RECEIVED_MONEY (Add a new constant)
+        )
+
+        # Send confirmation emails (optional)
+        send_transaction_email(self.request.user, amount, "Transfer Sent", "transactions/transfer_sent_email.html")
+        send_transaction_email(receiver.user, amount, "Transfer Received", "transactions/transfer_received_email.html")
+
+        messages.success(self.request, f'Transfer of {"{:,.2f}".format(amount)}$ completed successfully.')
+        return super().form_valid(form)
