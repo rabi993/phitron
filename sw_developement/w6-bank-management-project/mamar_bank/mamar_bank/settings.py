@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # your secret key
 SECRET_KEY = env("SECRET_KEY")
+
 # SECRET_KEY = env("SECRET_KEY", default="9af5e15018816396e650eaa8c8638dbf")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -49,7 +50,11 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'transactions',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
